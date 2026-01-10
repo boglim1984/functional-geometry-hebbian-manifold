@@ -34,7 +34,6 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 - `03_pixel_shuffle_control.ipynb` ([Link](https://colab.research.google.com/drive/19qUlvA5l7vMswTg0psYmb-Iw6IEFboEs?usp=drive_link))
 
 **Supporting Material**: 
-- `scripts/neuro_cartographer.py`
 - Manifold visualizations in `artifacts/ply/`:
   - [phase1_trained_layer4.ply](artifacts/ply/phase1_trained_layer4.ply) (trained semantic manifold)
   - [phase1_untrained_layer4.ply](artifacts/ply/phase1_untrained_layer4.ply) (random-weight baseline)
@@ -117,7 +116,6 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 │   ├── 07_neuro_surgeon_mass_consolidation.ipynb
 │   └── 08_neuro_sleep.ipynb
 ├── scripts/                           # Supporting Scripts
-│   ├── neuro_cartographer.py
 │   ├── neuro_surgeon.py
 │   ├── neuro_surgeon_batch.py
 │   └── neuro_sleep.py
