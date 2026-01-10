@@ -126,7 +126,7 @@ Neural networks learn functional geometry—structured manifolds in activation s
 
 ## Notebooks & Artifacts
 
-All experimental notebooks are hosted on Google Colab and linked in the respective phase sections above. Manifold visualizations (PLY files) can be found in `artifacts/ply/` and viewed with MeshLab, CloudCompare, or Blender.
+All experimental notebooks are hosted on Google Colab and linked in the respective phase sections above. Manifold visualizations (PLY files) can be found in `artifacts/ply/` and viewed with MeshLab, CloudCompare, or Blender. Static JPG preview images for these artifacts are available in `artifacts/figures/`.
 
 ## Status & Future Work
 

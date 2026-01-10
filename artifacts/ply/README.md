@@ -11,7 +11,7 @@ This directory contains the canonical manifold exports for the Functional Geomet
 Files follow the `phase_condition_layer.ply` format.
 
 ### Storage & Viewing
-These files are tracked via **Git LFS**. To view them, use 3D visualization tools such as:
+These files are tracked via **Git LFS**. Corresponding JPG previews exist in `artifacts/figures/` for quick visual inspection.
 - MeshLab
 - CloudCompare
 - Blender
