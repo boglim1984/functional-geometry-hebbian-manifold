@@ -17,6 +17,11 @@ Neural networks learn functional geometry—structured manifolds in activation s
 - **Exploited** for safe model consolidation
 - **Perturbed** to study plasticity dynamics
 
+![Layer 4 trained manifold (ResNet18)](artifacts/figures/phase1_trained_layer4.jpg)
+
+*Figure: 3D projection of the Layer 4 activation correlation manifold for a trained ResNet18.  
+This image is a visualization aid only; canonical data is provided via the PLY artifacts in `artifacts/ply/`.*
+
 ## Experimental Phases
 
 ### Phase I: Neuro-Cartography (Manifold Discovery)
