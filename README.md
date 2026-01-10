@@ -30,7 +30,11 @@ Neural networks learn functional geometry—structured manifolds in activation s
 
 **Supporting Material**: 
 - `scripts/neuro_cartographer.py`
-- Manifold visualizations (PLY format) in `artifacts/ply/`
+- Manifold visualizations in `artifacts/ply/`:
+  - `phase1_trained_layer4.ply` (trained semantic manifold)
+  - `phase1_untrained_layer4.ply` (random-weight baseline)
+  - `phase2_pixelshuffle_layer4.ply` (pixel-shuffle control)
+
 
 ### Phase II: Biopsy (Causal Testing)
 
