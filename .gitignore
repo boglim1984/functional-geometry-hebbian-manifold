@@ -28,7 +28,10 @@ ENV/
 
 # Jupyter Notebook
 .ipynb_checkpoints
-*.ipynb
+# Allow stubs, but keep checkpoints and other ipynb ignored generally
+# *.ipynb
+!notebooks/*.ipynb
+
 
 # PyTorch
 *.pth

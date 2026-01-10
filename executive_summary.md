@@ -40,21 +40,24 @@ Consolidating neurons that are close in manifold space preserves model performan
 
 Model compression strategies informed by functional geometry outperform naive approaches. The manifold structure provides a reliable prior for identifying safe consolidation targets.
 
-**Evidence**: Phase III batch consolidation maintained model capabilities while achieving compression ratios superior to random or magnitude-based pruning.
+**Evidence**: 
+- `06_neuro_surgeon_batch_biopsy.ipynb` statistical validation confirmed consistency across multiple layers.
+- `07_neuro_surgeon_mass_consolidation.ipynb` demonstrated significant parameter reduction with high accuracy preservation.
+- Supported by `scripts/neuro_surgeon_batch.py`.
 
-**Status**: Preliminary results; full validation in progress.
 
-### 5. Random Damage Increases Plasticity via Noise
+### 5. Random Damage Increases Plasticity via Noise (Negative Result)
 
-Controlled perturbation of network weights increases adaptability during subsequent training. This effect appears mediated by noise injection rather than specific geometric properties.
+Controlled perturbation of network weights increases adaptability during subsequent training; however, results indicate **no specific advantage for the geometric model** over random damage baselines. This suggests that while functional geometry encodes organization, it does not uniquely mediate plasticity improvements beyond simple noise injection.
 
-**Evidence**: TBD - Phase IV experiments planned.
+**Evidence**: `08_neuro_sleep_plasticity.ipynb` demonstrated that both geometric and random perturbations yield similar retraining dynamics.
 
 ### 6. Geometry Encodes Stability, Not Learning Speed
 
-The manifold structure reflects functional organization and redundancy but does not directly predict learning rate or convergence speed during retraining.
+The manifold structure reflects functional organization and redundancy (stability) but does not predict accelerated learning or convergence during retraining.
 
-**Evidence**: TBD - Phase IV experiments planned.
+**Evidence**: Comparative analysis in `08_neuro_sleep_plasticity.ipynb` confirmed that geometric consolidation preserves current function but does not "prime" the network for faster adaptation.
+
 
 ## Implications
 
@@ -104,4 +107,5 @@ These findings establish functional geometry as a legitimate object of study in 
 ---
 
 **Last Updated**: January 2026  
-**Status**: Phases I-II complete; Phase III in progress; Phase IV planned
+**Status**: Phases I-IV complete; Primary evidence archived via Colab notebooks
+
