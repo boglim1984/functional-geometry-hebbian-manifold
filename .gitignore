@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# PyTorch
+*.pth
+*.pt
+checkpoints/
+
+# Data
+data/
+datasets/
+*.csv
+*.h5
+*.hdf5
+
+# Large files (use Git LFS if needed)
+*.ply
+artifacts/ply/*.ply
+
+# Figures (commit selectively)
+# artifacts/figures/*.png
+# artifacts/figures/*.jpg
+# artifacts/figures/*.pdf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
