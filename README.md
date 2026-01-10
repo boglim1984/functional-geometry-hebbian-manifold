@@ -36,9 +36,9 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 **Supporting Material**: 
 - `scripts/neuro_cartographer.py`
 - Manifold visualizations in `artifacts/ply/`:
-  - `phase1_trained_layer4.ply` (trained semantic manifold)
-  - `phase1_untrained_layer4.ply` (random-weight baseline)
-  - `phase2_pixelshuffle_layer4.ply` (pixel-shuffle control)
+  - [phase1_trained_layer4.ply](artifacts/ply/phase1_trained_layer4.ply) (trained semantic manifold)
+  - [phase1_untrained_layer4.ply](artifacts/ply/phase1_untrained_layer4.ply) (random-weight baseline)
+  - [phase2_pixelshuffle_layer4.ply](artifacts/ply/phase2_pixelshuffle_layer4.ply) (pixel-shuffle control)
 
 
 ### Phase II: Biopsy (Causal Testing)
