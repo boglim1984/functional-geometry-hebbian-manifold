@@ -108,7 +108,22 @@ PLY files can become large for networks with many neurons. If files exceed 100MB
 
 ## Current Files
 
-*No PLY files currently in repository. Files will be added as experiments are completed.*
+The following PLY manifold files are included in this repository:
+
+### Phase I: Neuro-Cartography
+
+| File | Description | Size | Date Added |
+|------|-------------|------|------------|
+| `phase1_layer_trained_manifold.ply` | Trained network layer manifold (UMAP embedding) | 22KB | 2026-01-10 |
+| `phase1_layer4_untrained_manifold.ply` | Untrained network layer 4 manifold (baseline control) | 24KB | 2026-01-10 |
+| `phase1_layer_shuffle_control.ply` | Shuffled weights control manifold (null hypothesis test) | 23KB | 2026-01-10 |
+
+**Experimental Context**:
+- **Trained manifold**: Demonstrates learned functional geometry in a trained network
+- **Untrained manifold**: Baseline control showing random initialization structure
+- **Shuffle control**: Null hypothesis test with randomized weight assignments
+
+These files can be visualized using MeshLab, CloudCompare, Blender, or Python (see visualization instructions above).
 
 ## Metadata
 
