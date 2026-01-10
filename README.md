@@ -167,6 +167,17 @@ If you use this work, please cite:
 }
 ```
 
+## Repository Status
+
+This repository reflects an active research consolidation phase.
+
+Recent commits focus on:
+- aligning notebook coverage with documented phases
+- standardizing artifact naming
+- improving reader orientation and traceability
+
+The core experimental results are stable as of this release.
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
