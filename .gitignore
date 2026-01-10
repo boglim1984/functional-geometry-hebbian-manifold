@@ -42,7 +42,9 @@ datasets/
 *.h5
 *.hdf5
 
-# Large files (use Git LFS if needed)
+# Large files
+# PLY manifold files should be added via Git LFS or GitHub Releases
+# See artifacts/ply/README.md for instructions
 *.ply
 artifacts/ply/*.ply
 

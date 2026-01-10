@@ -1,6 +1,80 @@
 # PLY Manifold Exports
 
-This directory contains 3D point cloud representations of neural network functional geometry, exported in PLY (Polygon File Format) format.
+## ⚠️ Adding PLY Artifacts (Author Action Required)
+
+**STATUS**: PLY files are **NOT yet included** in this repository.
+
+### Action Required from Billy
+
+Please provide the `.ply` manifold files for inclusion in this repository. For each file, supply the following metadata:
+
+**Required Metadata**:
+1. **Filename**: Descriptive name (e.g., `resnet50_layer3_trained_umap.ply`)
+2. **Experiment Phase**: Phase I, II, III, or IV
+3. **Layer Name**: Specific layer identifier (e.g., `layer3`, `conv4`, `fc2`)
+4. **Condition**: 
+   - `trained` - Trained network
+   - `untrained` - Random initialization baseline
+   - `pixel-shuffle` - Shuffled weights control
+   - `near-merge` - Proximal neuron merge
+   - `far-merge` - Distal neuron merge
+   - Other (specify)
+5. **Short Description**: Brief explanation of what this manifold represents
+
+### Storage Options
+
+Choose one of the following methods for adding PLY files:
+
+#### Option A: Git LFS (Recommended for Versioned Artifacts)
+
+**Best for**: Files that may be updated, files < 2GB, files that need version history
+
+**Setup**:
+```bash
+# Install Git LFS
+git lfs install
+
+# Track PLY files
+git lfs track "artifacts/ply/*.ply"
+
+# Add and commit
+git add .gitattributes
+git add artifacts/ply/your_file.ply
+git commit -m "Add PLY artifact: [description]"
+git push
+```
+
+**Pros**: Version control, easy updates, integrated with repository  
+**Cons**: Requires Git LFS setup, bandwidth limits on free tier
+
+#### Option B: GitHub Releases (Recommended for Large Static Files)
+
+**Best for**: Files > 100MB, static archives, large collections
+
+**Process**:
+1. Go to: https://github.com/boglim1984/functional-geometry-hebbian-manifold/releases
+2. Click "Create a new release"
+3. Tag version (e.g., `v1.0-ply-artifacts`)
+4. Upload PLY files as release assets
+5. Update this README with download links
+
+**Pros**: No size limits, doesn't bloat repository, permanent URLs  
+**Cons**: No version control, separate from main repository
+
+### PLY File Manifest Template
+
+Once files are provided, they will be documented here:
+
+| Filename | Phase | Layer | Condition | Description | Size | Date Added | Storage |
+|----------|-------|-------|-----------|-------------|------|------------|---------|
+| _awaiting files_ | - | - | - | - | - | - | - |
+
+**Example Entry**:
+| Filename | Phase | Layer | Condition | Description | Size | Date Added | Storage |
+|----------|-------|-------|-----------|-------------|------|------------|---------|
+| `resnet50_layer3_trained_umap.ply` | Phase I | layer3 | trained | UMAP embedding of trained ResNet-50 layer 3 activations | 85MB | 2026-01-10 | Git LFS |
+
+---
 
 ## What These Files Represent
 
@@ -81,49 +155,14 @@ plt.show()
 ## File Naming Convention
 
 ```
-<model>_<layer>_<method>_<timestamp>.ply
+<phase>_<layer>_<condition>_<method>.ply
 
 Examples:
-- resnet50_layer3_umap_20260110.ply
-- vgg16_conv4_tsne_20260110.ply
+- phase1_layer3_trained_umap.ply
+- phase1_layer4_untrained_umap.ply
+- phase2_conv4_near_merge_tsne.ply
+- phase2_fc2_far_merge_umap.ply
 ```
-
-## Large File Handling
-
-PLY files can become large for networks with many neurons. If files exceed 100MB, consider:
-
-1. **Git LFS** (Large File Storage):
-   ```bash
-   git lfs install
-   git lfs track "*.ply"
-   git add .gitattributes
-   ```
-
-2. **External Hosting**: Upload to Zenodo, Figshare, or Google Drive and link here
-
-3. **Compression**: Use `gzip` or `xz` for archival
-   ```bash
-   gzip layer_manifold.ply  # Creates layer_manifold.ply.gz
-   ```
-
-## Current Files
-
-The following PLY manifold files are included in this repository:
-
-### Phase I: Neuro-Cartography
-
-| File | Description | Size | Date Added |
-|------|-------------|------|------------|
-| `phase1_layer_trained_manifold.ply` | Trained network layer manifold (UMAP embedding) | 22KB | 2026-01-10 |
-| `phase1_layer4_untrained_manifold.ply` | Untrained network layer 4 manifold (baseline control) | 24KB | 2026-01-10 |
-| `phase1_layer_shuffle_control.ply` | Shuffled weights control manifold (null hypothesis test) | 23KB | 2026-01-10 |
-
-**Experimental Context**:
-- **Trained manifold**: Demonstrates learned functional geometry in a trained network
-- **Untrained manifold**: Baseline control showing random initialization structure
-- **Shuffle control**: Null hypothesis test with randomized weight assignments
-
-These files can be visualized using MeshLab, CloudCompare, Blender, or Python (see visualization instructions above).
 
 ## Metadata
 
