@@ -1,13 +1,7 @@
-# Minimal Dependencies for Functional Geometry Research
-
-# Core ML
-torch>=2.0.0,<3.0.0
-torchvision>=0.15.0,<1.0.0
-numpy>=1.24.0,<2.0.0
-
-# Manifold Learning
-umap-learn>=0.5.3,<1.0.0
-scikit-learn>=1.3.0,<2.0.0
-
-# NOTE: These versions are chosen for broad compatibility. 
-# Avoid specific CUDA variants in this file to maintain portability.
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.24.0
+umap-learn>=0.5.3
+scikit-learn>=1.2.0
+matplotlib>=3.7.0
+scipy>=1.10.0

@@ -50,13 +50,14 @@ Model compression strategies informed by functional geometry outperform naive ap
 
 Controlled perturbation of network weights increases adaptability during subsequent training; however, results indicate **no specific advantage for the geometric model** over random damage baselines. This suggests that while functional geometry encodes organization, it does not uniquely mediate plasticity improvements beyond simple noise injection.
 
-**Evidence**: `08_neuro_sleep_plasticity.ipynb` demonstrated that both geometric and random perturbations yield similar retraining dynamics.
+**Evidence**: `08_neuro_sleep.ipynb` demonstrated that both geometric and random perturbations yield similar retraining dynamics.
 
 ### 6. Geometry Encodes Stability, Not Learning Speed
 
 The manifold structure reflects functional organization and redundancy (stability) but does not predict accelerated learning or convergence during retraining.
 
-**Evidence**: Comparative analysis in `08_neuro_sleep_plasticity.ipynb` confirmed that geometric consolidation preserves current function but does not "prime" the network for faster adaptation.
+**Evidence**: Comparative analysis in `08_neuro_sleep.ipynb` confirmed that geometric consolidation preserves current function but does not "prime" the network for faster adaptation.
+
 
 
 ## Implications

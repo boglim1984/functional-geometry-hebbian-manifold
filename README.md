@@ -21,6 +21,7 @@ Neural networks learn functional geometry—structured manifolds in activation s
 **Primary Evidence (Colab)**:
 - `01_neuro_cartography.ipynb` ([Link](https://colab.research.google.com/drive/1Fq1l2yQtmzHF7zrIWcXd_1iyKWYtFNm6?usp=drive_link))
 - `02_untrained_baseline_manifold.ipynb` ([Link](https://colab.research.google.com/drive/1aJIFXcehXMtid97zwfKfozseJt2A9L9Q?usp=drive_link))
+- `03_pixel_shuffle_control.ipynb` ([Link](https://colab.research.google.com/drive/19qUlvA5l7vMswTg0psYmb-Iw6IEFboEs?usp=drive_link))
 
 **Supporting Material**: 
 - `scripts/neuro_cartographer.py`
@@ -31,8 +32,7 @@ Neural networks learn functional geometry—structured manifolds in activation s
 **Objective**: Validate that geometric proximity predicts functional redundancy through targeted neuron removal.
 
 **Primary Evidence (Colab)**:
-- `03_pixel_shuffle_control.ipynb` ([Link](https://colab.research.google.com/drive/19qUlvA5l7vMswTg0psYmb-Iw6IEFboEs?usp=drive_link))
-- `04_neuro_surgeon_biopsy_FAILED.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
+- `04_failed_biopsy.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
 - `05_neuro_surgeon_biopsy_v2.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
 
 **Supporting Material**:
@@ -56,7 +56,7 @@ Neural networks learn functional geometry—structured manifolds in activation s
 **Objective**: Investigate whether geometric perturbation affects learning dynamics.
 
 **Primary Evidence (Colab)**:
-- `08_neuro_sleep_plasticity.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
+- `08_neuro_sleep.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
 
 **Supporting Material**:
 - `scripts/neuro_sleep.py`
@@ -97,11 +97,11 @@ Neural networks learn functional geometry—structured manifolds in activation s
 │   ├── 01_neuro_cartography.ipynb
 │   ├── 02_untrained_baseline_manifold.ipynb
 │   ├── 03_pixel_shuffle_control.ipynb
-│   ├── 04_neuro_surgeon_biopsy_FAILED.ipynb
+│   ├── 04_failed_biopsy.ipynb
 │   ├── 05_neuro_surgeon_biopsy_v2.ipynb
 │   ├── 06_neuro_surgeon_batch_biopsy.ipynb
 │   ├── 07_neuro_surgeon_mass_consolidation.ipynb
-│   └── 08_neuro_sleep_plasticity.ipynb
+│   └── 08_neuro_sleep.ipynb
 ├── scripts/                           # Supporting Scripts
 │   ├── neuro_cartographer.py
 │   ├── neuro_surgeon.py
