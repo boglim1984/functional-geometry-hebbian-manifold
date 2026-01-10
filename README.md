@@ -163,7 +163,7 @@ If you use this work, please cite:
 ```
 @misc{functional-geometry-2026,
   title={Functional Geometry in Deep Neural Networks},
-  author={Billy O’Flaherty},
+  author={boglim},
   year={2026},
   url={https://github.com/boglim1984/functional-geometry-hebbian-manifold}
 }
