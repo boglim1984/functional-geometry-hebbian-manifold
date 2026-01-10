@@ -136,29 +136,15 @@ All experimental notebooks are hosted on Google Colab and linked in the respecti
 - Cross-architecture validation
 - Theoretical formalization
 
-## Reproducibility Notes
+## Reproducibility / Environment
 
-### Dependency Versions
+To ensure consistent experimental results, please use the environment specified in `requirements.txt`.
 
-This project uses pinned dependency versions in `requirements.txt` to ensure reproducibility. Key considerations:
+**Note on UMAP**: Manifold geometry can vary slightly between library versions. It is recommended to use the pinned versions to maintain parity with the documented artifacts.
 
-**UMAP Embeddings**: UMAP (Uniform Manifold Approximation and Projection) embeddings can vary slightly between library versions due to algorithmic refinements and numerical precision differences. While the overall manifold structure remains stable, exact coordinate values may differ.
-
-**Recommendations**:
-- Use the specified version ranges in `requirements.txt` for best reproducibility
-- Document your exact environment (`pip freeze > environment.txt`) when generating new manifolds
-- When comparing manifolds, focus on structural properties (cluster assignments, relative distances) rather than absolute coordinates
-
-**Environment Setup**:
 ```bash
-# Install exact versions
 pip install -r requirements.txt
-
-# Verify installation
-python -c "import umap; print(umap.__version__)"
 ```
-
-See `requirements.txt` for complete dependency specifications.
 
 ## Citation
 
@@ -167,9 +153,9 @@ If you use this work, please cite:
 ```
 @misc{functional-geometry-2026,
   title={Functional Geometry in Deep Neural Networks},
-  author={TBD},
+  author={Billy O’Flaherty},
   year={2026},
-  url={https://github.com/[username]/functional-geometry-hebbian-manifold}
+  url={https://github.com/boglim1984/functional-geometry-hebbian-manifold}
 }
 ```
 
