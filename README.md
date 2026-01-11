@@ -2,9 +2,7 @@
 
 ## Overview
 
-This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, and explores its implications for model compression, interpretability, and plasticity. In this work, functional geometry refers to structure induced by cosine similarity between neuron activation vectors, where geometric proximity predicts functional interchangeability under intervention.
-
-Motivated by the need for safer, interpretable model compression and causal validation of learned representations.
+This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, and explores its implications for model compression, interpretability, and plasticity. In this work, functional geometry refers to structure induced by cosine similarity between neuron activation vectors, where geometric proximity predicts functional interchangeability under intervention. Motivated by the need for safer, interpretable model compression and causal validation of learned representations. The term ‘Hebbian’ is used descriptively to denote geometry emerging from correlated activations during training, not a specific synaptic update rule.
 
 ## Key Measured Results (Summary)
 
@@ -85,12 +83,6 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 
 **Status**: COMPLETE (Negative result verified).
 
-## Key Results (Verified)
-
-- Neuron-pair proximity in activation space predicts functional redundancy (≈14× sensitivity gap between near vs. far merges).
-- Geometry-guided consolidation is ≈1.8× more stable than random merging at scale (50-pair mass consolidation).
-- Learned activation manifolds differ sharply from untrained and pixel-shuffled controls.
-
 ## Empirical Results (Measured)
 
 | Experiment | Metric | Result |
@@ -104,6 +96,12 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 | Plasticity Test (5 epochs) | Random peak accuracy | 86.8% |
 
 "All results are measured directly from intervention experiments and reported as loss or accuracy deltas relative to identical baselines. Negative ΔLoss values indicate improved alignment due to head mismatch and should be interpreted by magnitude, not sign."
+
+## Key Results (Verified)
+
+- Neuron-pair proximity in activation space predicts functional redundancy (≈14× sensitivity gap between near vs. far merges).
+- Geometry-guided consolidation is ≈1.8× more stable than random merging at scale (50-pair mass consolidation).
+- Learned activation manifolds differ sharply from untrained and pixel-shuffled controls.
 
 ## Key Findings
 
