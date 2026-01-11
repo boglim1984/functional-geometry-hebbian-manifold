@@ -77,7 +77,7 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 - `08_neuro_sleep.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
 
 
-**Status**: COMPLETE (Negative result observed).
+**Status**: COMPLETE (Negative result verified).
 
 ## Empirical Results (Measured)
 
@@ -95,13 +95,13 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 
 ## Key Results (Verified)
 
-- Geometry predicts redundancy: neuron-pair proximity in activation space predicts functional interchangeability.
+- Geometry predicts redundancy: neuron-pair proximity in activation space predicts functional interchangeability under intervention.
 - Geometry-guided consolidation is more stable than random merging at scale.
 
 ## Key Findings
 
 1. **Functional geometry exists**: Neurons organize into structured manifolds in activation space
-2. **Geometry predicts redundancy**: Proximal neurons in geometric space exhibit functional overlap
+2. **Geometry predicts redundancy**: Proximal neurons in geometric space exhibit functional interchangeability
 3. **Local merges are safe**: Consolidating nearby neurons preserves performance
 4. **Distant merges destabilize**: Merging geometrically distant neurons degrades function
 5. **Geometry-guided consolidation works**: Compression informed by manifold structure outperforms naive approaches
@@ -159,7 +159,7 @@ All experimental notebooks are hosted on Google Colab and linked in the respecti
 - Phase I: Manifold discovery and visualization
 - Phase II: Causal validation through targeted ablation
 - Phase III: System-scale consolidation
-- Phase IV: Plasticity and relearning dynamics (Negative result observed)
+- Phase IV: Plasticity and relearning dynamics (Negative result verified)
 
 **Future Work**:
 - Cross-architecture validation
