@@ -55,7 +55,6 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 - `05_neuro_surgeon_biopsy_v2.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
 
 **Supporting Material**:
-- `scripts/neuro_surgeon.py`
 
 ### Phase III: Mass Consolidation
 
@@ -122,7 +121,6 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 │   ├── 07_neuro_surgeon_mass_consolidation.ipynb
 │   └── 08_neuro_sleep.ipynb
 ├── scripts/                           # Supporting Scripts
-│   ├── neuro_surgeon.py
 │   ├── neuro_surgeon_batch.py
 │   └── neuro_sleep.py
 ├── artifacts/                         # Generated outputs
