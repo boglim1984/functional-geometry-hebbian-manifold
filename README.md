@@ -2,7 +2,9 @@
 
 ## Overview
 
-This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, explores its implications for model compression, interpretability, and plasticity, and defines functional geometry as structure induced by cosine similarity between neuron activation vectors. Geometric proximity predicts functional interchangeability under intervention. Motivated by the need for safer, interpretable model compression and causal validation of learned representations. The term ‘Hebbian’ is used descriptively to denote geometry emerging from correlated activations during training, not a specific synaptic update rule.
+This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, explores its implications for model compression, interpretability, and plasticity, and defines functional geometry as structure induced by cosine similarity between neuron activation vectors.
+
+Geometric proximity predicts functional interchangeability under intervention. Motivated by the need for safer, interpretable model compression and causal validation of learned representations. The term ‘Hebbian’ is used descriptively to denote geometry emerging from correlated activations during training, not a specific synaptic update rule.
 
 ## Key Measured Results (Summary)
 
@@ -93,7 +95,7 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 
 ## Key Results (Verified)
 
-- Geometry predicts redundancy: neuron-pair proximity in activation space predicts functional overlap.
+- Geometry predicts redundancy: neuron-pair proximity in activation space predicts functional interchangeability.
 - Geometry-guided consolidation is more stable than random merging at scale.
 
 ## Key Findings
