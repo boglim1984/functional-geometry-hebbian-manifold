@@ -4,6 +4,8 @@
 
 This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, and explores its implications for model compression, interpretability, and plasticity. In this work, functional geometry refers to the structure induced by cosine similarity between neuron activation vectors, where geometric proximity predicts functional interchangeability under intervention.
 
+Motivated by the need for safer, interpretable model compression and causal validation of learned representations.
+
 ## Key Measured Results (Summary)
 
 - Single-pair biopsy: ~14× sensitivity separation (Far vs Near merges)
@@ -192,7 +194,7 @@ If you use this work, please cite:
 
 ## Repository Status
 
-This repository reflects an active research consolidation phase.
+This repository reflects a completed experimental arc with ongoing consolidation and documentation.
 
 Recent commits focus on:
 - aligning notebook coverage with documented phases
