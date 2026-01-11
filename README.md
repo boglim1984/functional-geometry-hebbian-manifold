@@ -101,10 +101,10 @@ Images are illustrative only; canonical measurements are derived from the linked
 | Single-Pair Biopsy | Sensitivity ratio (Far / Near) | ≈ 14× |
 | Batch Biopsy (N=50, Near) | Mean \|ΔLoss\| | 0.0119 ± 0.0098 |
 | Batch Biopsy (N=50, Far) | Mean \|ΔLoss\| | 0.0594 ± 0.1377 |
-| Mass Consolidation (50 pairs) | Geometry-guided ΔLoss | −0.376 |
-| Mass Consolidation (50 pairs) | Random ΔLoss | −0.681 |
-| Plasticity Test (5 epochs) | Geometric peak accuracy | 84.7% |
-| Plasticity Test (5 epochs) | Random peak accuracy | 86.8% |
+| Mass Consolidation (50 pairs, Geometry-guided) | ΔLoss | −0.376 |
+| Mass Consolidation (50 pairs, Random) | ΔLoss | −0.681 |
+| Plasticity Test (5 epochs, Geometry-guided) | Peak accuracy | 84.7% |
+| Plasticity Test (5 epochs, Random) | Peak accuracy | 86.8% |
 
 "All results are measured directly from intervention experiments and reported as loss or accuracy deltas relative to identical baselines. Negative ΔLoss values indicate improved alignment due to head mismatch and should be interpreted by magnitude, not sign."
 
