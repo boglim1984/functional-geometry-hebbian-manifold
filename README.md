@@ -47,6 +47,8 @@ This image is a visualization aid only; canonical data is provided via the PLY a
   - [phase1_untrained_layer4.ply](artifacts/ply/phase1_untrained_layer4.ply) (random-weight baseline)
   - [phase2_pixelshuffle_layer4.ply](artifacts/ply/phase2_pixelshuffle_layer4.ply) (pixel-shuffle control)
 
+These files are stored via Git LFS. If browser download fails, clone the repo and run `git lfs pull`.
+
 
 ### Phase II: Biopsy (Causal Testing)
 
