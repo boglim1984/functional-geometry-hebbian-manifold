@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, and explores its implications for model compression, interpretability, and plasticity. In this work, functional geometry refers to the structure induced by cosine similarity between neuron activation vectors, where geometric proximity predicts functional interchangeability under intervention.
+This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, and explores its implications for model compression, interpretability, and plasticity. In this work, functional geometry refers to structure induced by cosine similarity between neuron activation vectors, where geometric proximity predicts functional interchangeability under intervention.
 
 Motivated by the need for safer, interpretable model compression and causal validation of learned representations.
 
@@ -55,6 +55,8 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 **Primary Evidence (Colab)**:
 - `04_failed_biopsy.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
 - `05_neuro_surgeon_biopsy_v2.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
+
+(Both notebooks reference the same Colab session; the former documents a failed configuration, while the latter documents the corrected protocol.)
 
 **Supporting Material**:
 
