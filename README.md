@@ -56,7 +56,6 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 
 (Both notebooks reference the same Colab session; the former documents a failed configuration, the latter the corrected protocol.)
 
-**Supporting Material**:
 
 ### Phase III: Mass Consolidation
 
@@ -75,8 +74,6 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 **Primary Evidence (Colab)**:
 - `08_neuro_sleep.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
 
-**Supporting Material**:
-- `scripts/neuro_sleep.py`
 
 **Status**: COMPLETE (Negative result verified).
 
