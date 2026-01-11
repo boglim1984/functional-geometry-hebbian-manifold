@@ -108,8 +108,7 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 3. **Local merges are safe**: Consolidating nearby neurons preserves performance
 4. **Distant merges destabilize**: Merging geometrically distant neurons degrades function
 5. **Geometry-guided consolidation works**: Compression informed by manifold structure outperforms naive approaches
-6. **Geometric perturbation affects plasticity**: TBD
-7. **Geometry encodes stability, not learning speed**: TBD
+6. **Geometry encodes stability, not learning speed**: Geometric consolidation does not significantly improve learning speed under transfer learning; benefits appear primarily in stability, not plasticity.
 
 ## What This Is / Is Not
 
@@ -162,12 +161,10 @@ All experimental notebooks are hosted on Google Colab and linked in the respecti
 **Completed**:
 - Phase I: Manifold discovery and visualization
 - Phase II: Causal validation through targeted ablation
-
-**In Progress**:
 - Phase III: System-scale consolidation
+- Phase IV: Plasticity and relearning dynamics (Negative result verified)
 
-**Planned**:
-- Phase IV: Plasticity and relearning dynamics
+**Future Work**:
 - Cross-architecture validation
 - Theoretical formalization
 
