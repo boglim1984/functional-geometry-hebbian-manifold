@@ -4,26 +4,6 @@
 
 This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, and explores its implications for model compression, interpretability, and plasticity. In this work, functional geometry refers to the structure induced by cosine similarity between neuron activation vectors, where geometric proximity predicts functional interchangeability under intervention.
 
-## Empirical Results (Measured)
-
-| Experiment | Metric | Result |
-|-----------|--------|--------|
-| Single-Pair Biopsy | Sensitivity ratio (Far / Near) | ≈ 14× |
-| Batch Biopsy (N=50) | Mean |ΔLoss| (Near) | 0.0119 ± 0.0098 |
-| Batch Biopsy (N=50) | Mean |ΔLoss| (Far) | 0.0594 ± 0.1377 |
-| Mass Consolidation (50 pairs) | Geometry-guided ΔLoss | −0.376 |
-| Mass Consolidation (50 pairs) | Random ΔLoss | −0.681 |
-| Plasticity Test (5 epochs) | Geometric peak accuracy | 84.7% |
-| Plasticity Test (5 epochs) | Random peak accuracy | 86.8% |
-
-"All results are measured directly from intervention experiments and reported as loss or accuracy deltas relative to identical baselines. Negative ΔLoss values indicate improved alignment due to head mismatch and should be interpreted by magnitude, not sign."
-
-## Key Results (Verified)
-
-- Neuron-pair proximity in activation space predicts functional redundancy (≈14× sensitivity gap between near vs. far merges).
-- Geometry-guided consolidation is ≈1.8× more stable than random merging at scale (50-pair mass consolidation).
-- Learned activation manifolds differ sharply from untrained and pixel-shuffled controls.
-
 ## 📖 How to Read This Repository
 
 New readers should start with [docs/how_to_read.md](docs/how_to_read.md) for a concise orientation guide to the repository structure, evidence flow, and experimental phases.
@@ -94,6 +74,26 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 - `scripts/neuro_sleep.py`
 
 **Status**: COMPLETE (Negative result verified).
+
+## Empirical Results (Measured)
+
+| Experiment | Metric | Result |
+|-----------|--------|--------|
+| Single-Pair Biopsy | Sensitivity ratio (Far / Near) | ≈ 14× |
+| Batch Biopsy (N=50) | Mean |ΔLoss| (Near) | 0.0119 ± 0.0098 |
+| Batch Biopsy (N=50) | Mean |ΔLoss| (Far) | 0.0594 ± 0.1377 |
+| Mass Consolidation (50 pairs) | Geometry-guided ΔLoss | −0.376 |
+| Mass Consolidation (50 pairs) | Random ΔLoss | −0.681 |
+| Plasticity Test (5 epochs) | Geometric peak accuracy | 84.7% |
+| Plasticity Test (5 epochs) | Random peak accuracy | 86.8% |
+
+"All results are measured directly from intervention experiments and reported as loss or accuracy deltas relative to identical baselines. Negative ΔLoss values indicate improved alignment due to head mismatch and should be interpreted by magnitude, not sign."
+
+## Key Results (Verified)
+
+- Neuron-pair proximity in activation space predicts functional redundancy (≈14× sensitivity gap between near vs. far merges).
+- Geometry-guided consolidation is ≈1.8× more stable than random merging at scale (50-pair mass consolidation).
+- Learned activation manifolds differ sharply from untrained and pixel-shuffled controls.
 
 ## Key Findings
 
