@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, and explores its implications for model compression, interpretability, and plasticity. In this work, functional geometry refers to structure induced by cosine similarity between neuron activation vectors. Geometric proximity predicts functional interchangeability under intervention. Motivated by the need for safer, interpretable model compression and causal validation of learned representations. The term ‘Hebbian’ is used descriptively to denote geometry emerging from correlated activations during training, not a specific synaptic update rule.
+This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, explores its implications for model compression, interpretability, and plasticity, and defines functional geometry as structure induced by cosine similarity between neuron activation vectors. Geometric proximity predicts functional interchangeability under intervention. Motivated by the need for safer, interpretable model compression and causal validation of learned representations. The term ‘Hebbian’ is used descriptively to denote geometry emerging from correlated activations during training, not a specific synaptic update rule.
 
 ## Key Measured Results (Summary)
 
@@ -75,7 +75,7 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 - `08_neuro_sleep.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
 
 
-**Status**: COMPLETE (Negative result verified).
+**Status**: COMPLETE (Negative result observed).
 
 ## Empirical Results (Measured)
 
@@ -93,9 +93,8 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 
 ## Key Results (Verified)
 
-- Neuron-pair proximity in activation space predicts functional redundancy (≈14× sensitivity gap between near vs. far merges).
-- Geometry-guided consolidation is ≈1.8× more stable than random merging at scale (50-pair mass consolidation).
-- Learned activation manifolds differ sharply from untrained and pixel-shuffled controls.
+- Geometry predicts redundancy: neuron-pair proximity in activation space predicts functional overlap.
+- Geometry-guided consolidation is more stable than random merging at scale.
 
 ## Key Findings
 
@@ -158,7 +157,7 @@ All experimental notebooks are hosted on Google Colab and linked in the respecti
 - Phase I: Manifold discovery and visualization
 - Phase II: Causal validation through targeted ablation
 - Phase III: System-scale consolidation
-- Phase IV: Plasticity and relearning dynamics (Negative result verified)
+- Phase IV: Plasticity and relearning dynamics (Negative result observed)
 
 **Future Work**:
 - Cross-architecture validation
