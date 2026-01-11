@@ -32,6 +32,9 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 
 ## Experimental Phases
 
+Canonical manifold data is stored as PLY artifacts in `artifacts/ply/` (Git LFS). 
+If preview or download fails, clone the repository and run `git lfs pull`.
+
 ### Phase I: Neuro-Cartography (Manifold Discovery)
 
 **Objective**: Map the functional geometry of trained networks by analyzing activation patterns across layers.
@@ -41,17 +44,7 @@ This image is a visualization aid only; canonical data is provided via the PLY a
 - `02_untrained_baseline_manifold.ipynb` ([Link](https://colab.research.google.com/drive/1aJIFXcehXMtid97zwfKfozseJt2A9L9Q?usp=drive_link))
 - `03_pixel_shuffle_control.ipynb` ([Link](https://colab.research.google.com/drive/19qUlvA5l7vMswTg0psYmb-Iw6IEFboEs?usp=drive_link))
 
-**Supporting Material**: 
-- Manifold visualizations in `artifacts/ply/`:
-  - [phase1_trained_layer4.ply](artifacts/ply/phase1_trained_layer4.ply) (trained semantic manifold)
-  - [phase1_untrained_layer4.ply](artifacts/ply/phase1_untrained_layer4.ply) (random-weight baseline)
-  - [phase2_pixelshuffle_layer4.ply](artifacts/ply/phase2_pixelshuffle_layer4.ply) (pixel-shuffle control)
-
-Manifold artifacts are stored via Git LFS; if browser preview or download fails, clone the repository and run `git lfs pull` to retrieve the files.
-
 **Phase I Visual Previews**
-
-Static image previews corresponding to the Phase I notebooks:
 
 - **01_neuro_cartography.ipynb**  
   Colab: https://colab.research.google.com/drive/1Fq1l2yQtmzHF7zrIWcXd_1iyKWYtFNm6  
@@ -65,17 +58,16 @@ Static image previews corresponding to the Phase I notebooks:
   Colab: https://colab.research.google.com/drive/19qUlvA5l7vMswTg0psYmb-Iw6IEFboEs  
   Preview: [phase2_pixelshuffle_layer4.jpg](artifacts/figures/phase2_pixelshuffle_layer4.jpg)
 
-Images are illustrative only; canonical data and measurements are derived from the linked notebooks and PLY artifacts.
+Images are illustrative only; canonical measurements are derived from the linked notebooks.
 
 ### Phase II: Biopsy (Causal Testing)
 
 **Objective**: Validate that geometric proximity predicts functional redundancy through targeted neuron removal.
 
 **Primary Evidence (Colab)**:
-- `04_failed_biopsy.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
-- `05_neuro_surgeon_biopsy_v2.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
-
-(Both notebooks reference the same Colab session; the former documents a failed configuration, the latter the corrected protocol.)
+- **04_failed_biopsy.ipynb** & **05_neuro_surgeon_biopsy_v2.ipynb**  
+  Colab: https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M  
+  (The former documents a failed configuration; the latter documents the corrected protocol.)
 
 
 ### Phase III: Mass Consolidation
@@ -83,8 +75,11 @@ Images are illustrative only; canonical data and measurements are derived from t
 **Objective**: Scale geometry-guided compression to system level.
 
 **Primary Evidence (Colab)**:
-- `06_neuro_surgeon_batch_biopsy.ipynb` ([Link](https://colab.research.google.com/drive/1bxQ-ZOA6lep-b2QhyvM71dj5zt1YI7vc?usp=drive_link))
-- `07_neuro_surgeon_mass_consolidation.ipynb` ([Link](https://colab.research.google.com/drive/1VVuKh1WrFA_y182QiERAeHuI7zSVFPiJ?usp=drive_link))
+- **06_neuro_surgeon_batch_biopsy.ipynb**  
+  Colab: https://colab.research.google.com/drive/1bxQ-ZOA6lep-b2QhyvM71dj5zt1YI7vc
+
+- **07_neuro_surgeon_mass_consolidation.ipynb**  
+  Colab: https://colab.research.google.com/drive/1VVuKh1WrFA_y182QiERAeHuI7zSVFPiJ
 
 **Status**: Statistical validation COMPLETE.
 
@@ -93,7 +88,8 @@ Images are illustrative only; canonical data and measurements are derived from t
 **Objective**: Investigate whether geometric perturbation affects learning dynamics.
 
 **Primary Evidence (Colab)**:
-- `08_neuro_sleep.ipynb` ([Link](https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M?usp=drive_link))
+- **08_neuro_sleep.ipynb**  
+  Colab: https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M
 
 
 **Status**: COMPLETE (Negative result verified).
@@ -134,8 +130,6 @@ Images are illustrative only; canonical data and measurements are derived from t
 - A demonstration of causal validation methods
 - An archive of experimental results with controls
 
-“The term ‘Hebbian’ is used descriptively to denote geometry emerging from correlated activations during training, rather than a specific synaptic update rule.”
-
 **This is not**:
 - A claim about biological neural networks
 - A general theory of deep learning
@@ -167,10 +161,6 @@ Images are illustrative only; canonical data and measurements are derived from t
 │   └── research_notes.md
 └── LICENSE                            # MIT License
 ```
-
-## Notebooks & Artifacts
-
-All experimental notebooks are hosted on Google Colab and linked in the respective phase sections above. Manifold visualizations (PLY files) can be found in `artifacts/ply/` and viewed with MeshLab, CloudCompare, or Blender. Static JPG preview images for these artifacts are available in `artifacts/figures/`.
 
 ## Status & Future Work
 
