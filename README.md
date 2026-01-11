@@ -99,8 +99,8 @@ Images are illustrative only; canonical measurements are derived from the linked
 | Experiment | Metric | Result |
 |-----------|--------|--------|
 | Single-Pair Biopsy | Sensitivity ratio (Far / Near) | ≈ 14× |
-| Batch Biopsy (N=50) | Mean |ΔLoss| (Near) | 0.0119 ± 0.0098 |
-| Batch Biopsy (N=50) | Mean |ΔLoss| (Far) | 0.0594 ± 0.1377 |
+| Batch Biopsy (N=50, Near) | Mean \|ΔLoss\| | 0.0119 ± 0.0098 |
+| Batch Biopsy (N=50, Far) | Mean \|ΔLoss\| | 0.0594 ± 0.1377 |
 | Mass Consolidation (50 pairs) | Geometry-guided ΔLoss | −0.376 |
 | Mass Consolidation (50 pairs) | Random ΔLoss | −0.681 |
 | Plasticity Test (5 epochs) | Geometric peak accuracy | 84.7% |
