@@ -53,9 +53,17 @@ Manifold artifacts are stored via Git LFS; if browser preview or download fails,
 
 Static image previews corresponding to the Phase I notebooks:
 
-- `01_neuro_cartography.ipynb` → `artifacts/figures/phase1_trained_layer4.jpg`
-- `02_untrained_baseline_manifold.ipynb` → `artifacts/figures/phase1_untrained_layer4.jpg`
-- `03_pixel_shuffle_control.ipynb` → `artifacts/figures/phase2_pixelshuffle_layer4.jpg`
+- **01_neuro_cartography.ipynb**  
+  Colab: https://colab.research.google.com/drive/1Fq1l2yQtmzHF7zrIWcXd_1iyKWYtFNm6  
+  Preview: [phase1_trained_layer4.jpg](artifacts/figures/phase1_trained_layer4.jpg)
+
+- **02_untrained_baseline_manifold.ipynb**  
+  Colab: https://colab.research.google.com/drive/1aJIFXcehXMtid97zwfKfozseJt2A9L9Q  
+  Preview: [phase1_untrained_layer4.jpg](artifacts/figures/phase1_untrained_layer4.jpg)
+
+- **03_pixel_shuffle_control.ipynb**  
+  Colab: https://colab.research.google.com/drive/19qUlvA5l7vMswTg0psYmb-Iw6IEFboEs  
+  Preview: [phase2_pixelshuffle_layer4.jpg](artifacts/figures/phase2_pixelshuffle_layer4.jpg)
 
 Images are illustrative only; canonical data and measurements are derived from the linked notebooks and PLY artifacts.
 
