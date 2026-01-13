@@ -482,6 +482,42 @@ To further disambiguate "slab" geometry from true manifold structure, the next s
 ![Trajectory Spectrum Test](artifacts/figures/phase2_experiment_3_trajectory_spectrum_test.png)
 *Figure: Trajectory PC1 Explained Variance Ratio (L=20). SSL representations show a clear shift toward higher trajectory persistence compared to supervised models, though both remain far from 1D linearity.*
 
+### Experiment 4 — Manifold Audit (Multi-Probe Stress Test)
+
+**Status:** Exploratory / Falsification-oriented  
+**Note:** This experiment serves as an adversarial audit of the "Manifold Hypothesis" in latent representations.
+
+**Purpose**  
+Stress-test the observation of anisotropic "highways" against the null hypotheses of global dimensional collapse and covariance-induced artifacts.
+
+**Method Summary**  
+Four orthogonal probes were applied to compare Supervised vs. Self-Supervised (SSL) representations:
+1. **Probe 1: Local vs Global Spectral Gap ($\lambda_1/\lambda_2$):** Measures local linearity relative to global rank.
+2. **Probe 2: Turning Angle Spectrum:** Analyzes trajectory smoothness vs. ballisticity.
+3. **Probe 3: Return Probability:** Tests for topological trapping/loops indicative of manifold boundaries.
+4. **Probe 4: Whitening Re-Walk (Acid Test):** Removes global covariance to see if "highways" persist as topological structures.
+
+**Key Observations**  
+- **Spectral Gap:** SSL shows a higher local spectral gap than supervised models, but also a higher global gap, suggesting overall rank reduction.
+- **Turning Angles:** Trajectories are smoother in SSL but do not exhibit the ballisticity expected of true 1D fibers.
+- **Return Probability:** Comparable across models; no evidence of enhanced topological trapping in SSL.
+- **Whitening Acid Test:** **Whitening completely removes the apparent trajectory-tangent alignment.**
+
+**Verdict — Covariance-Driven Flattening**  
+The observed "highways" and increased tangent alignment in SSL representations do not survive whitening. Therefore, they are best explained as **covariance-driven dimensional flattening** rather than intrinsic topological manifolds. 
+
+> "Observed ‘highways’ do not survive whitening and therefore are best explained as covariance artifacts rather than topological semantic manifolds."
+
+**Implication**  
+This negative result narrows the hypothesis space: the geometric refinement seen in SSL is a byproduct of global dimensional collapse (rank reduction) which "flattens" the representation into slab-like structures. This clarifies the limits of probe-based manifold discovery in these architectures and motivates Phase III studies focused on longitudinal training dynamics and architecture-specific geometry.
+
+**Artifacts**
+- **Figure:** Manifold Audit Results (Spectral Gap, Angles, Topology, Whitening)
+- **Notebook:** [Colab Link](https://colab.research.google.com/drive/1R6LoQ6kvpU88kFrnxKBgAkON_XMvnEIT?usp=sharing)
+
+![Manifold Audit](artifacts/figures/phase2_experiment4_manifold_audit.png)
+*Figure: Manifold Audit Summary. The results from four orthogonal probes indicate that while SSL models exhibit more linear local geometry than supervised models, this structure is primarily a result of covariance-driven flattening.*
+
 ## Repository Structure
 
 ```
@@ -502,7 +538,8 @@ To further disambiguate "slab" geometry from true manifold structure, the next s
 │   ├── 11_vector_field_alignment.ipynb
 │   ├── 12_scale_dependent_linearity.ipynb
 │   ├── 13_training_objective_geometry.ipynb
-│   └── 14_trajectory_persistence_test.ipynb
+│   ├── 14_trajectory_persistence_test.ipynb
+│   └── 15_manifold_audit.ipynb
 ├── scripts/                           # Supporting Scripts
 │   ├── neuro_surgeon_batch.py
 │   └── neuro_sleep.py
