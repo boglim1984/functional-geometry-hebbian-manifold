@@ -343,6 +343,20 @@ The representation clusters variation into dense cores without linearizing it in
 
 Phase I establishes a controlled geometric baseline for subsequent comparative or longitudinal studies.
 
+## Phase II — Future Directions (Placeholder)
+
+Phase II will extend the geometric probing framework established in Phase I to comparative, longitudinal, or scale-dependent settings.
+
+Potential directions include (non-exhaustive):
+- Cross-architecture comparisons (e.g., CNNs vs. transformers)
+- Layer-wise or depth-wise geometric analysis
+- Training-time evolution of latent geometry
+- Scale-dependent or multi-resolution probing
+- Controlled synthetic manifolds for validation
+
+No Phase II experiments have been finalized or executed at this stage.  
+This section serves solely as a placeholder to preserve structural continuity of the project.
+
 ## Repository Structure
 
 ```
