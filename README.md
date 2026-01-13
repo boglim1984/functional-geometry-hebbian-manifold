@@ -298,6 +298,51 @@ The near-identical distributions indicate isotropic diffusion within dense laten
 
 ![Vector Field Alignment](artifacts/figures/experiment_3_vector_field_alignment.png)
 
+## Phase I Summary — Latent Geometry Probing
+
+This project investigates the geometric structure of neural network latent representations using probe-based traversal instruments, without modifying the model, training procedure, dataset, or supervision.
+
+All experiments were conducted on a frozen ResNet18 encoder. Structure is inferred exclusively through downstream traversal behavior on a k-nearest-neighbor graph of latent embeddings.
+
+### Instrumentation
+
+Two traversal instruments were used:
+
+- **Instrument I₀ (Baseline Walker):**  
+  An isotropic, memoryless random walker serving as a null probe.
+
+- **Instrument I₁ (Upgraded Walker):**  
+  A metric-aware, short-memory walker biased toward regions of high local feature variance, designed to reduce probe-induced artifacts while remaining strictly downstream and non-creative.
+
+Instrument I₀ is retained as a baseline reference; Instrument I₁ is adopted as the primary probe.
+
+### Phase I Findings
+
+Across three experiments, the following conclusions were established:
+
+1. **Structural Anisotropy (Experiment 1):**  
+   Independent I₁ walkers converge into shared transit corridors, demonstrating non-random, anisotropic structure in the latent space.
+
+2. **Topological Positioning (Experiment 2):**  
+   Variance-biased traversal preferentially inhabits high-density regions. The identified “highways” lie within dense cluster cores (“backbones”), not sparse boundaries or transition zones.
+
+3. **Local Geometry (Experiment 3):**  
+   Despite global anisotropy and dense attractors, traversal within these backbones is locally isotropic. No significant alignment with local tangent directions was observed.
+
+### Consolidated Interpretation
+
+ResNet18 latent representations contain structured, high-density attractor regions that bias global traversal, but these regions do not decompose into locally linear or fibrous manifolds at the scale tested.  
+The representation clusters variation into dense cores without linearizing it into disentangled axes.
+
+### Scope and Limits
+
+- No labels, supervision, or downstream tasks were used.
+- No model parameters were updated.
+- All conclusions are geometric and probe-dependent.
+- Results characterize structure, not semantics or performance.
+
+Phase I establishes a controlled geometric baseline for subsequent comparative or longitudinal studies.
+
 ## Repository Structure
 
 ```
