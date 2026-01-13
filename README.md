@@ -95,38 +95,6 @@ Images are illustrative only; canonical measurements are derived from the linked
 **Status**: COMPLETE (Negative result verified).
 
 
-## Instrument Transition — Walker Probe Upgrade
-
-INSTRUMENT TRANSITION NOTE — WALKER UPGRADE
-
-This project transitions from Instrument I₀ (baseline random walker) to Instrument I₁ (metric-aware + short-memory walker).
-
-Scope of change:
-- The underlying model, training procedure, dataset, and representations remain unchanged.
-- No learning, optimization, or parameter updates are introduced.
-- The upgrade applies only to the traversal instrument used to probe latent-space structure.
-
-Rationale:
-Instrument I₀ exhibited probe-induced artifacts, including local looping, seed sensitivity, and isotropic traversal assumptions that reduced measurement fidelity. Instrument I₁ improves traversal fidelity by adapting to local geometric variance and suppressing redundant revisits, without encoding task-specific priors or hypotheses.
-
-Continuity of hypothesis:
-All prior hypotheses regarding latent structure are preserved unchanged. Instrument I₁ is strictly downstream and monotonic in epistemic power: it may reduce false positives or clarify structure, but cannot introduce structure not already present in the representation.
-
-Interpretation policy:
-Results obtained under Instrument I₁ are treated as higher-resolution evaluations of the same hypotheses tested under Instrument I₀. Agreement strengthens confidence; disagreement is interpreted as probe correction rather than hypothesis failure.
-
-Status:
-Instrument I₀ is retained as a baseline reference. Instrument I₁ is adopted as the primary probe going forward.
-
-### Latest Probe Study (Colab)
-
-This study evaluates the upgraded walker probe on a frozen ResNet embedding space, demonstrating improved traversal fidelity without altering prior hypotheses or models.
-
-- **Metric-Aware Walker Probe Study**  
-  Colab: https://colab.research.google.com/drive/1zGZH1utq38y4G9RjYEchbuF2ObB_WDTX?usp=sharing
-
-
-
 ## Empirical Results (Measured)
 
 | Experiment | Metric | Result |
@@ -168,6 +136,37 @@ This study evaluates the upgraded walker probe on a frozen ResNet embedding spac
 - A general theory of deep learning
 - A production-ready compression method
 - A complete explanation of network function
+
+## Instrument Transition — Walker Probe Upgrade
+
+INSTRUMENT TRANSITION NOTE — WALKER UPGRADE
+
+This project transitions from Instrument I₀ (baseline random walker) to Instrument I₁ (metric-aware + short-memory walker).
+
+Scope of change:
+- The underlying model, training procedure, dataset, and representations remain unchanged.
+- No learning, optimization, or parameter updates are introduced.
+- The upgrade applies only to the traversal instrument used to probe latent-space structure.
+
+Rationale:
+Instrument I₀ exhibited probe-induced artifacts, including local looping, seed sensitivity, and isotropic traversal assumptions that reduced measurement fidelity. Instrument I₁ improves traversal fidelity by adapting to local geometric variance and suppressing redundant revisits, without encoding task-specific priors or hypotheses.
+
+Continuity of hypothesis:
+All prior hypotheses regarding latent structure are preserved unchanged. Instrument I₁ is strictly downstream and monotonic in epistemic power: it may reduce false positives or clarify structure, but cannot introduce structure not already present in the representation.
+
+Interpretation policy:
+Results obtained under Instrument I₁ are treated as higher-resolution evaluations of the same hypotheses tested under Instrument I₀. Agreement strengthens confidence; disagreement is interpreted as probe correction rather than hypothesis failure.
+
+Status:
+Instrument I₀ is retained as a baseline reference. Instrument I₁ is adopted as the primary probe going forward.
+
+### Latest Probe Study (Colab)
+
+This study evaluates the upgraded probe on a frozen ResNet embedding space.
+
+- **Metric-Aware Walker Probe Study**: https://colab.research.google.com/drive/1zGZH1utq38y4G9RjYEchbuF2ObB_WDTX?usp=sharing
+
+This study does not modify prior hypotheses, models, or training.
 
 ## Repository Structure
 
