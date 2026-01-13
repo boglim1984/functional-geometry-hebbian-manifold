@@ -123,6 +123,8 @@ Images are illustrative only; canonical measurements are derived from the linked
 5. **Geometry-guided consolidation works**: Compression informed by manifold structure outperforms naive approaches
 6. **Geometry encodes stability, not learning speed**: Geometric consolidation does not significantly improve learning speed under transfer learning; benefits appear primarily in stability, not plasticity.
 
+These findings have been re-evaluated under an upgraded traversal probe that reduces probe-induced artifacts (see Instrument Transition below).
+
 ## What This Is / Is Not
 
 **This is**:
