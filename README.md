@@ -264,6 +264,40 @@ The hexbin plots visualize static node density versus dynamic occupancy probabil
 **Status**  
 Experiment 2 confirms that variance-driven traversal pathways correspond to dense latent backbones rather than boundary regions. This result constrains the geometry of the representation and motivates subsequent experiments probing internal directional coherence within dense cores.
 
+### Experiment 3 — Vector Field Alignment (Local Linear Geometry)
+
+**Colab Notebook:**  
+https://colab.research.google.com/drive/1aQNVJru_8MLIA3wjxUEHmAFs2LmAzeco?usp=sharing
+
+**Objective**  
+Determine whether the dense “backbones” identified in Experiments 1–2 are locally linear (fibrous) or internally isotropic (blob-like).
+
+**Method**  
+For each node in the latent k-NN graph, a local tangent direction was estimated using the first principal component (PC1) of its neighborhood.  
+Both Instrument I₀ (isotropic random walker) and Instrument I₁ (variance-biased, short-memory walker) were run over the graph.  
+For every traversal step, the cosine alignment between the step displacement and the local tangent was measured.  
+Distributions of alignment scores were compared using a Mann–Whitney U test.
+
+**Results**  
+- Mean alignment (I₀): ≈ 0.29  
+- Mean alignment (I₁): ≈ 0.29  
+- Alignment factor (I₁ / I₀): ≈ 1.01×  
+- Difference not statistically significant (p > 0.05)
+
+**Interpretation**  
+Although Instrument I₁ reliably converges into dense, high-variance regions of the latent space, traversal within these regions does not exhibit preferential alignment with local tangent directions.  
+This indicates that the dense backbones identified in earlier experiments are internally isotropic rather than composed of coherent low-dimensional fibers.
+
+**Conclusion**  
+ResNet18 latent representations exhibit structured attractor regions that bias global traversal, but these regions do not decompose into locally linear manifolds at the scale tested.  
+The representation clusters variation into dense cores without linearizing it into disentangled axes.
+
+**Figure**  
+*Distribution of Local Tangent Alignment (Cosine).*  
+The near-identical distributions indicate isotropic diffusion within dense latent backbones.
+
+![Vector Field Alignment](artifacts/figures/experiment_3_vector_field_alignment.png)
+
 ## Repository Structure
 
 ```
@@ -280,7 +314,8 @@ Experiment 2 confirms that variance-driven traversal pathways correspond to dens
 │   ├── 07_neuro_surgeon_mass_consolidation.ipynb
 │   ├── 08_neuro_sleep.ipynb
 │   ├── 09_metric_aware_walker_probe.ipynb
-│   └── 10_density_occupancy_correlation.ipynb
+│   ├── 10_density_occupancy_correlation.ipynb
+│   └── 11_vector_field_alignment.ipynb
 ├── scripts/                           # Supporting Scripts
 │   ├── neuro_surgeon_batch.py
 │   └── neuro_sleep.py
