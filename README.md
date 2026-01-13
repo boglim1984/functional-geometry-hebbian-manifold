@@ -447,26 +447,40 @@ This motivates the next experiment.
 
 ### Planned Follow-Up (Phase II — Experiment 3)
 
-To disambiguate true manifold structure from dimensional collapse, the next experiment will measure **trajectory-level persistence** rather than step-wise alignment.
+This motivates the next experiment.
 
-**Planned Test:**  
-**Phase II — Experiment 3: Trajectory Spectrum Test (Manifold Persistence)**
+### Experiment 3 — Trajectory Spectrum Test (Manifold Persistence)
 
-**Key Idea:**  
-If self-supervised representations contain true fibers, variance-biased walker trajectories should form near-1D curves over short temporal windows, exhibiting high PC1 explained variance.  
-If alignment arises from dimensional collapse, trajectories will show moderate rank without dominant 1D structure.
+**Status:** Provisional / Interpretive phase  
+**Note:** Results are indicative of geometric divergence but do not confirm fibrous manifolds.
 
-**Status:**
-- Phase II — Experiment 2 results retained
-- Interpretation explicitly marked **provisional**
-- Phase II — Experiment 3 designated as required falsification test
+**Goal**  
+Test whether the increased local tangent alignment observed in self-supervised (SSL) representations aggregates into coherent 1D manifolds over time, or instead reflects low-rank dimensional collapse (flattening).
+
+**Method**  
+- **Models:** Supervised ResNet18 vs. Self-Supervised SimCLR (encoder only).
+- **Instruments:** Apply Instrument I₁ to generate latent trajectories on the k-NN graph.
+- **Metric:** Sliding window PCA (L=20 steps). Compute the **PC1 Explained Variance Ratio (EVR₁)** for each trajectory segment.
+- **Criteria:** If trajectories are 1D fibers, EVR₁ should be near 1.0. If trajectories are 2D slabs or higher-rank clouds, EVR₁ will remain significantly lower.
+
+**Results (Preliminary)**  
+- **Supervised:** mean EVR₁ ≈ 0.19  
+- **Self-Supervised:** mean EVR₁ ≈ 0.36  
+- **Delta:** ΔEVR ≈ +0.17 (statistically significant, p ≈ 0)
+
+**Interpretation**  
+SSL trajectories exhibit substantially higher persistence than the supervised baseline, indicating a measurable shift in latent geometry. However, a mean EVR₁ of 0.36 remains far from the ~1.0 expected for a 1D fiber.  
+The geometry is best described as **low-rank slab-like / contrastive flattening**, where the representation is compressed into fewer degrees of freedom without yet forming coherent, disentangled fibers.
+
+**Open Question / Next Step**  
+To further disambiguate "slab" geometry from true manifold structure, the next stage of Phase II will focus on **Effective Rank Profile / Eigenvalue Spectrum** analysis. This will determine if the observed alignment is a byproduct of global dimensional collapse or local structural refinement.
 
 **Artifacts**
-- **Figure:** Tangent Alignment Distribution (Supervised vs. Self-Supervised)
-- **Notebook:** [Colab Link](https://colab.research.google.com/drive/1IsUGxfQUs4cXr5NIrGnR0B6TyznAZt2q?usp=sharing)
+- **Figure:** Trajectory PC1 Explained Variance (Supervised vs. SSL)
+- **Notebook:** [Colab Link](https://colab.research.google.com/drive/1vitpfyNbuNAPW3LfDGAVHjHH0eMzNICu?usp=sharing)
 
-![Tangent Alignment Distribution](artifacts/figures/phase2_exp2_training_objective_geometry_simclr_vs_supervised.png)
-*Figure: Tangent Alignment Distribution (Supervised vs. Self-Supervised). The self-supervised representation shows a measurable shift toward higher alignment compared to the supervised baseline.*
+![Trajectory Spectrum Test](artifacts/figures/phase2_experiment_3_trajectory_spectrum_test.png)
+*Figure: Trajectory PC1 Explained Variance Ratio (L=20). SSL representations show a clear shift toward higher trajectory persistence compared to supervised models, though both remain far from 1D linearity.*
 
 ## Repository Structure
 
