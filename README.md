@@ -180,6 +180,64 @@ This study evaluates the upgraded probe on a frozen ResNet embedding space.
 
 This study does not modify prior hypotheses, models, or training.
 
+### Experiment 1 — Highway Convergence Test (Structural Anisotropy)
+
+**Objective**
+
+Evaluate whether the upgraded traversal probe (Instrument I₁), which is metric-aware and suppresses short-term revisits, reveals global structural anisotropy in the latent space by inducing convergence of independent walkers starting from distant locations.
+
+This experiment tests for the presence of shared “transit corridors” or “highways” in the embedding geometry that are not detectable under isotropic random sampling.
+
+**Experimental Setup**
+
+- Model: Frozen ResNet18 encoder
+- Dataset: CIFAR-10 (test split, subset)
+- Representation: L2-normalized embedding space
+- Graph: k-NN graph over embeddings
+- Instruments:
+  - I₀: Baseline isotropic, memoryless random walker
+  - I₁: Metric-aware, short-memory walker biased toward local variance
+- Protocol:
+  - Select 50 pairs of starting nodes separated by large cosine distance
+  - Run independent walkers from each start for a fixed number of steps
+  - Measure convergence using Jaccard overlap of visited node sets
+
+**Quantitative Results**
+
+- Instrument I₀ (baseline):
+  - Mean overlap ≈ 0.020
+- Instrument I₁ (upgraded):
+  - Mean overlap ≈ 0.038
+- Convergence factor (I₁ / I₀):
+  - ≈ 1.9×
+
+The upgraded probe consistently produces higher overlap between independent walkers than the isotropic baseline, indicating weak but systematic convergence.
+
+**Figure 1 — Convergence Statistics**
+
+![Convergence boxplot comparing baseline and upgraded walkers](artifacts/figures/experiment1_convergence_boxplot.png)
+
+Independent walkers under Instrument I₁ exhibit higher and more frequent overlap than under Instrument I₀, whose overlap remains near chance with occasional outliers.
+
+**Qualitative Visualization**
+
+To contextualize the quantitative results, a representative pair of I₁ trajectories is projected into two dimensions using PCA.
+
+**Figure 2 — Qualitative Highway Convergence (PCA Projection)**
+
+![PCA visualization of independent I₁ walker convergence](artifacts/figures/experiment1_pca_highway_convergence.png)
+
+Although the walkers do not follow identical paths, they bend toward shared regions of the latent space, consistent with the presence of sparse, anisotropic transit corridors rather than a single global attractor.
+
+**Interpretation**
+
+- The latent space is not isotropic: flow is constrained along preferred directions.
+- High-variance regions form a weak but real connective skeleton (“highways”).
+- The effect is reproducible across random seeds and absent under the baseline probe.
+- No semantic interpretation or class structure is assumed or inferred.
+
+This experiment demonstrates that improved probe fidelity reveals global geometric constraints that are invisible under random diffusion.
+
 ## Repository Structure
 
 ```
