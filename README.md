@@ -19,11 +19,13 @@ New readers should start with [docs/how_to_read.md](docs/how_to_read.md) for a c
 
 ## Core Hypothesis
 
-Neural networks learn functional geometry—structured manifolds in activation space that encode redundancy, stiffness, and causal relationships between neurons. This geometry can be:
+Neural networks learn functional geometry—structured, dense regions in activation space that encode redundancy, stiffness, and causal relationships between neurons. This geometry can be:
 - **Mapped** through dimensionality reduction and clustering
 - **Validated** through targeted surgical interventions
 - **Exploited** for safe model consolidation
 - **Perturbed** to study plasticity dynamics
+
+**Primary conclusion:** Trained ResNet representations exhibit robust functional geometry that predicts redundancy and stability under intervention. However, this geometry consists of dense, covariance-structured attractor regions rather than intrinsic low-dimensional semantic manifolds.
 
 [![Layer 4 trained manifold (ResNet18)](artifacts/figures/phase1_trained_layer4.jpg)](artifacts/figures/phase1_trained_layer4.jpg)
 
@@ -116,11 +118,11 @@ Images are illustrative only; canonical measurements are derived from the linked
 
 ## Key Findings
 
-1. **Functional geometry exists**: Neurons organize into structured manifolds in activation space
+1. **Functional geometry exists**: Neurons organize into structured, dense attractor regions in activation space
 2. **Geometry predicts redundancy**: Proximal neurons in geometric space exhibit functional interchangeability
 3. **Local merges are safe**: Consolidating nearby neurons preserves performance
 4. **Distant merges destabilize**: Merging geometrically distant neurons degrades function
-5. **Geometry-guided consolidation works**: Compression informed by manifold structure outperforms naive approaches
+5. **Geometry-guided consolidation works**: Compression informed by geometric structure outperforms naive approaches
 6. **Geometry encodes stability, not learning speed**: Geometric consolidation does not significantly improve learning speed under transfer learning; benefits appear primarily in stability, not plasticity.
 
 These findings have been re-evaluated under an upgraded traversal probe that reduces probe-induced artifacts (see Instrument Transition below).
@@ -331,7 +333,7 @@ Across three experiments, the following conclusions were established:
 
 ### Consolidated Interpretation
 
-ResNet18 latent representations contain structured, high-density attractor regions that bias global traversal, but these regions do not decompose into locally linear or fibrous manifolds at the scale tested.  
+ResNet18 latent representations contain structured, high-density attractor regions that bias global traversal, but these regions do not decompose into locally linear or fibrous geometry at the scale tested.  
 The representation clusters variation into dense cores without linearizing it into disentangled axes.
 
 ### Scope and Limits
@@ -406,7 +408,7 @@ The absence of fibrous structure appears fundamental to this representation and 
 Is the “isotropic blob” geometry observed in supervised ResNet18 representations an artifact of the cross-entropy training objective, or a property of the architecture itself?
 
 **Motivation**  
-Supervised classification objectives explicitly compress intra-class variation toward centroids, potentially collapsing local manifold structure. In contrast, self-supervised contrastive objectives (e.g., SimCLR) are designed to preserve invariances and may retain continuous transformation fibers. This experiment probes whether training objective alone alters local geometric structure.
+Supervised classification objectives explicitly compress intra-class variation toward centroids, potentially collapsing local geometric structure. In contrast, self-supervised contrastive objectives (e.g., SimCLR) are designed to preserve invariances and may retain continuous transformation fibers. This experiment probes whether training objective alone alters local geometric structure.
 
 **Method Summary**
 - Architecture fixed: ResNet-18
@@ -428,7 +430,7 @@ These preliminary results suggest that label-driven supervision may actively sup
 
 The positive tangent-alignment differential observed for the self-supervised (SSL) model in Phase II, Experiment 2 is **statistically robust but not yet geometrically decisive**.
 
-While increased local tangent alignment is consistent with the hypothesis that self-supervised objectives preserve fibrous (manifold-like) structure, an alternative explanation remains viable:
+While increased local tangent alignment is consistent with the hypothesis that self-supervised objectives preserve fibrous structure, an alternative explanation remains viable:
 
 **Dimensional Collapse Confound:**  
 Contrastive self-supervised learning may reduce the effective rank of the embedding space (global dimensional collapse). In a lower-dimensional space, random or variance-biased motion will *appear* more aligned with any locally estimated tangent, even in the absence of true manifold structure.
@@ -517,6 +519,19 @@ This negative result narrows the hypothesis space: the geometric refinement seen
 
 ![Manifold Audit](artifacts/figures/phase2_experiment4_manifold_audit.png)
 *Figure: Manifold Audit Summary. The results from four orthogonal probes indicate that while SSL models exhibit more linear local geometry than supervised models, this structure is primarily a result of covariance-driven flattening.*
+
+### Phase II Summary — Geometric Divergence and Falsification
+
+Phase II investigations targeted the "Manifold Hypothesis" through a series of comparative and adversarial tests:
+
+- **Scale-Dependent Linearity**: Falsified the possibility that fibrous structure was hidden at different neighborhood scales; isotropy persists from micro-local to regional scales.
+- **Training Objective**: Identified measurable geometric divergence between supervised and self-supervised models. SSL models exhibit significantly higher local tangent alignment.
+- **Trajectory Spectrum**: Determined that SSL alignment is "slab-like" (EVR₁ ≈ 0.36) rather than 1D fibrous, showing increased persistence but not disentangled axes.
+- **Manifold Audit**: Definitive falsification via the **Whitening Acid Test**. Apparent trajectory-tangent alignment in SSL models is a byproduct of **covariance-driven dimensional flattening** (rank reduction) rather than intrinsic topological manifolds.
+
+**Verdict**: Functional geometry remains a robust predictor of stability, but the tested ResNet18 representations do not decompose into fibrous manifolds. Observed "highways" are artifacts of global covariance flattening.
+
+**Scope Note**: These conclusions apply to frozen ResNet18 encoders under the tested objectives and do not rule out fibrous structure in other architectures, objectives, or training regimes.
 
 ## Repository Structure
 
