@@ -126,7 +126,7 @@ If preview or download fails, clone the repository and run `git lfs pull`.
 
 ---
 
-### Phase II Experiment Manifest (Detailed)
+### Phase V Experiment Manifest (Instrumentation & Falsification)
 
 | Notebook | Purpose (Why it exists) | Verdict (What it ruled out) |
 |:---|:---|:---|
@@ -137,6 +137,10 @@ If preview or download fails, clone the repository and run `git lfs pull`.
 | `13_training_objective_geometry` | Compare Supervised vs. SSL (SimCLR) geometry. | Found significant geometric divergence in SSL models. |
 | `14_trajectory_persistence_test` | Measure SSL trajectory coherence (Sliding Window PCA). | Ruled out 1D fibers in SSL; found "slab-like" geometry. |
 | `15_manifold_audit` | Adversarial audit via Whitening Acid Test. | **Falsified intrinsic manifolds**; confirmed covariance origin. |
+
+---
+
+### Phase II Experiment Manifest (Detailed)
 
 
 ## Empirical Results (Measured)
@@ -613,10 +617,11 @@ Phase II investigations targeted the "Manifold Hypothesis" through a series of c
 ## Status & Future Work
 
 **Completed**:
-- Phase I: Manifold discovery and visualization (Complete)
-- Phase II: Extended Geometric Probes (In Progress — Experiment 1 complete)
-- Phase III: Causal validation through targeted ablation (Baseline complete)
-- Phase IV: Plasticity and relearning dynamics (Complete — Negative result verified)
+- Phase I: Neuro-Cartography (Complete)
+- Phase II: Causal Validation (Biopsy) (Complete)
+- Phase III: Mass Consolidation (Complete)
+- Phase IV: Plasticity and Relearning Dynamics (Complete)
+- Phase V: Advanced Probing & Falsification (Complete)
 
 **Future Work**:
 - Cross-architecture validation
