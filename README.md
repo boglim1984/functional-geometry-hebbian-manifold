@@ -397,6 +397,77 @@ Variance sensitivity manifests as a **scalar property of dense prototype cores**
 **Implication**  
 The absence of fibrous structure appears fundamental to this representation and objective, not an artifact of neighborhood size or tangent resolution. This result motivates Phase II studies focused on **architecture and training-objective dependence**, rather than further intra-model geometric refinement.
 
+### Experiment 2 — Training Objective Geometry Test (Preliminary)
+
+**Status:** Exploratory / Instrument-validation phase  
+**Note:** Results are indicative but not final. Self-supervised weights fallback was used for structural validation only.
+
+**Question**  
+Is the “isotropic blob” geometry observed in supervised ResNet18 representations an artifact of the cross-entropy training objective, or a property of the architecture itself?
+
+**Motivation**  
+Supervised classification objectives explicitly compress intra-class variation toward centroids, potentially collapsing local manifold structure. In contrast, self-supervised contrastive objectives (e.g., SimCLR) are designed to preserve invariances and may retain continuous transformation fibers. This experiment probes whether training objective alone alters local geometric structure.
+
+**Method Summary**
+- Architecture fixed: ResNet-18
+- Dataset fixed: CIFAR-10 test subset (N = 2000)
+- Probe fixed: Instrument I₁ (variance-biased, short-memory walker)
+- Metric: Local tangent alignment |cos(θ)| using PC1 of k-NN neighborhoods (k = 100)
+- Comparison: Supervised vs. Self-Supervised representations
+
+**Key Observation (Preliminary)**
+The self-supervised representation exhibits substantially higher tangent alignment than the supervised baseline, indicating stronger local linear (fibrous) structure. The supervised model remains concentrated in low-alignment regions, consistent with isotropic “blob-like” geometry.
+
+**Important Caveat**
+The current run used a fallback self-supervised model due to missing SimCLR weights at runtime. As such, the numerical values are not treated as conclusive evidence. However, the experiment validates the *discriminative power and sensitivity* of the probe and supports the plausibility of the “Collapse Hypothesis.”
+
+**Interpretation**
+These preliminary results suggest that label-driven supervision may actively suppress local manifold structure, while self-supervised objectives preserve or recover linear fibers of variation. Final confirmation requires rerunning this experiment with verified SimCLR (or equivalent) pretrained weights.
+
+### Interpretation Update — Dimensional Collapse Caveat (Important)
+
+The positive tangent-alignment differential observed for the self-supervised (SSL) model in Phase II, Experiment 2 is **statistically robust but not yet geometrically decisive**.
+
+While increased local tangent alignment is consistent with the hypothesis that self-supervised objectives preserve fibrous (manifold-like) structure, an alternative explanation remains viable:
+
+**Dimensional Collapse Confound:**  
+Contrastive self-supervised learning may reduce the effective rank of the embedding space (global dimensional collapse). In a lower-dimensional space, random or variance-biased motion will *appear* more aligned with any locally estimated tangent, even in the absence of true manifold structure.
+
+Under this confound:
+- High alignment reflects reduced degrees of freedom, not semantic fibers  
+- Instantaneous alignment can be a false positive for structure  
+- Local geometry must be evaluated over *trajectory persistence*, not single steps
+
+Accordingly, Phase II, Experiment 2 should be interpreted as:
+
+> Evidence of **geometric divergence between supervised and self-supervised representations**,  
+> but **not yet conclusive evidence** of recovered fibrous manifold structure.
+
+This motivates the next experiment.
+
+### Planned Follow-Up (Phase II — Experiment 3)
+
+To disambiguate true manifold structure from dimensional collapse, the next experiment will measure **trajectory-level persistence** rather than step-wise alignment.
+
+**Planned Test:**  
+**Phase II — Experiment 3: Trajectory Spectrum Test (Manifold Persistence)**
+
+**Key Idea:**  
+If self-supervised representations contain true fibers, variance-biased walker trajectories should form near-1D curves over short temporal windows, exhibiting high PC1 explained variance.  
+If alignment arises from dimensional collapse, trajectories will show moderate rank without dominant 1D structure.
+
+**Status:**
+- Phase II — Experiment 2 results retained
+- Interpretation explicitly marked **provisional**
+- Phase II — Experiment 3 designated as required falsification test
+
+**Artifacts**
+- **Figure:** Tangent Alignment Distribution (Supervised vs. Self-Supervised)
+- **Notebook:** [Colab Link](https://colab.research.google.com/drive/1IsUGxfQUs4cXr5NIrGnR0B6TyznAZt2q?usp=sharing)
+
+![Tangent Alignment Distribution](artifacts/figures/phase2_exp2_training_objective_geometry_simclr_vs_supervised.png)
+*Figure: Tangent Alignment Distribution (Supervised vs. Self-Supervised). The self-supervised representation shows a measurable shift toward higher alignment compared to the supervised baseline.*
+
 ## Repository Structure
 
 ```
@@ -415,7 +486,9 @@ The absence of fibrous structure appears fundamental to this representation and 
 │   ├── 09_metric_aware_walker_probe.ipynb
 │   ├── 10_density_occupancy_correlation.ipynb
 │   ├── 11_vector_field_alignment.ipynb
-│   └── 12_scale_dependent_linearity.ipynb
+│   ├── 12_scale_dependent_linearity.ipynb
+│   ├── 13_training_objective_geometry.ipynb
+│   └── 14_trajectory_persistence_test.ipynb
 ├── scripts/                           # Supporting Scripts
 │   ├── neuro_surgeon_batch.py
 │   └── neuro_sleep.py
