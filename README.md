@@ -343,19 +343,59 @@ The representation clusters variation into dense cores without linearizing it in
 
 Phase I establishes a controlled geometric baseline for subsequent comparative or longitudinal studies.
 
-## Phase II — Future Directions (Placeholder)
+## Phase II — Extended Geometric Probes
 
-Phase II will extend the geometric probing framework established in Phase I to comparative, longitudinal, or scale-dependent settings.
+### Experiment 1 — Scale-Dependent Linearity Test
 
-Potential directions include (non-exhaustive):
-- Cross-architecture comparisons (e.g., CNNs vs. transformers)
-- Layer-wise or depth-wise geometric analysis
-- Training-time evolution of latent geometry
-- Scale-dependent or multi-resolution probing
-- Controlled synthetic manifolds for validation
+**Motivation**  
+Phase I established that high-variance traversal “highways” in ResNet18 latent space localize to dense prototype cores (Experiment 2) and exhibit no local directional alignment (Experiment 3, k=20).  
+This experiment tests whether the observed isotropy is a **scale artifact**, asking whether coherent linear structure emerges at larger neighborhood scales.
 
-No Phase II experiments have been finalized or executed at this stage.  
-This section serves solely as a placeholder to preserve structural continuity of the project.
+**Hypothesis**  
+If dense backbones are noisy but fundamentally linear manifolds, alignment between walker trajectories and local tangents should increase when tangents are estimated over larger neighborhoods.
+
+**Method**  
+- Fixed representation: Frozen ResNet18 embeddings (CIFAR-10, n=2000).
+- Fixed instrumentation:  
+  - I₀: isotropic, memoryless random walker  
+  - I₁: variance-biased, short-memory walker (unchanged from Phase I)
+- Navigation graph fixed at k=20 to preserve probe consistency.
+- Tangent estimation via PCA (PC1) over multiple neighborhood scales:  
+  k ∈ {10, 25, 50, 100, 250, 500}
+- Alignment metric:  
+  |cos(θ)| between walker step Δx and local tangent v₁^(k)
+- Statistical test:  
+  Mann–Whitney U (one-sided, I₁ > I₀)
+
+**Results Summary**  
+Across all scales:
+- Mean alignment remained low (≈ 0.15–0.24).
+- I₁ ≈ I₀ at every k.
+- Alignment factor ≈ 1.0.
+- No statistically significant separation between instruments.
+
+Representative values:
+- k=10:  factor ≈ 0.98
+- k=25:  factor ≈ 0.99
+- k=100: factor ≈ 0.98
+- k=500: factor ≈ 1.01 (p > 0.1)
+
+**Figure**  
+*Mean trajectory–tangent alignment across neighborhood scales.*  
+The variance-biased walker (I₁) does not exhibit increased alignment relative to the isotropic baseline (I₀) at any scale, indicating persistent isotropy.
+
+![Scale-Dependent Linearity](artifacts/figures/phase2_experiment_1_scale_linearity.png)
+
+**Reproducibility (Colab)**  
+https://colab.research.google.com/drive/1FEeB_0vdZWQO6qF4784s-_h2hA6YKs96?usp=sharing
+
+**Conclusion**  
+This experiment rules out scale-dependent linearity as an explanation for prior null alignment results.  
+Dense “backbones” in ResNet18 latent space remain isotropic across micro-local and regional scales.  
+Variance sensitivity manifests as a **scalar property of dense prototype cores**, not as coherent directional flow.
+
+**Implication**  
+The absence of fibrous structure appears fundamental to this representation and objective, not an artifact of neighborhood size or tangent resolution. This result motivates Phase II studies focused on **architecture and training-objective dependence**, rather than further intra-model geometric refinement.
 
 ## Repository Structure
 
@@ -374,7 +414,8 @@ This section serves solely as a placeholder to preserve structural continuity of
 │   ├── 08_neuro_sleep.ipynb
 │   ├── 09_metric_aware_walker_probe.ipynb
 │   ├── 10_density_occupancy_correlation.ipynb
-│   └── 11_vector_field_alignment.ipynb
+│   ├── 11_vector_field_alignment.ipynb
+│   └── 12_scale_dependent_linearity.ipynb
 ├── scripts/                           # Supporting Scripts
 │   ├── neuro_surgeon_batch.py
 │   └── neuro_sleep.py
@@ -389,10 +430,10 @@ This section serves solely as a placeholder to preserve structural continuity of
 ## Status & Future Work
 
 **Completed**:
-- Phase I: Manifold discovery and visualization
-- Phase II: Causal validation through targeted ablation
-- Phase III: System-scale consolidation
-- Phase IV: Plasticity and relearning dynamics (Negative result verified)
+- Phase I: Manifold discovery and visualization (Complete)
+- Phase II: Extended Geometric Probes (In Progress — Experiment 1 complete)
+- Phase III: Causal validation through targeted ablation (Baseline complete)
+- Phase IV: Plasticity and relearning dynamics (Complete — Negative result verified)
 
 **Future Work**:
 - Cross-architecture validation
