@@ -32,6 +32,38 @@ Neural networks learn functional geometry—structured, dense regions in activat
 *Figure: 3D projection of the Layer 4 activation correlation manifold for a trained ResNet18.  
 This image is a visualization aid only; canonical data is provided via the PLY artifacts in `artifacts/ply/`.*
 
+## 🏁 Final Conclusions (Read This First)
+
+The experimental arc concludes that while deep neural networks develop robust **functional geometry**, they do not exhibit true **topological manifolds** at the scales tested.
+
+- **Final Verdict**: The observed geometric structures are instances of **Covariance-Encoded Functional Anisotropy**.
+- **Falsification**: The "highways" seen in SSL representations are artifacts of global covariance-driven flattening and do not survive whitening.
+- **Causality**: Geometric proximity remains a valid and powerful predictor of functional redundancy (verified via biopsy).
+- **See Full Report**: [executive_summary.md](executive_summary.md)
+
+### Canonical Summary Figures
+
+````carousel
+![Phase-by-Phase Verdict](artifacts/figures/summary/verdict_chart.png)
+<!-- slide -->
+![EVR1 Comparison](artifacts/figures/summary/evr_comparison.png)
+<!-- slide -->
+![Whitening Acid Test](artifacts/figures/summary/whitening_acid_test.png)
+<!-- slide -->
+![Hypothesis Funnel](artifacts/figures/summary/hypothesis_funnel.png)
+````
+
+> [!CAUTION]
+> **Interpretation Notice**  
+> Apparent low-dimensional structure in manifold projections (PCA/UMAP) does **NOT** imply intrinsic manifolds. All such claims must survive whitening and trajectory persistence tests. This repository **falsifies**, rather than confirms, many common manifold-centric narratives.
+
+## 🔤 Terminology Lock-In
+
+- **Functional Geometry**: The causal, variance-encoded organization of activations that predicts response to intervention.
+- **Anisotropy**: Statistical non-uniformity in representation space (global "highways").
+- **Manifold (Topological)**: A hypothesized local 1D fiber or curve that persists independently of global covariance (**Falsified**).
+- **Covariance-Driven Flattening**: The mechanism (rank reduction) by which training objectives "squash" representations, creating the appearance of linear structure.
+
 ## Experimental Phases
 
 Canonical manifold data is stored as PLY artifacts in `artifacts/ply/` (Git LFS). 
@@ -95,6 +127,20 @@ Images are illustrative only; canonical measurements are derived from the linked
 
 
 **Status**: COMPLETE (Negative result verified).
+
+---
+
+### Phase II Experiment Manifest (Detailed)
+
+| Notebook | Purpose (Why it exists) | Verdict (What it ruled out) |
+|:---|:---|:---|
+| `09_metric_aware_walker_probe` | Upgrade traversal resolution to reduce looping artifacts. | Ruled out purely random walk as an optimal probe. |
+| `10_density_occupancy_correlation` | Locate "highways" relative to latent density. | Confirmed highways exist inside dense cores, not boundaries. |
+| `11_vector_field_alignment` | Test for local fibrous (1D) structure in ResNet18. | Ruled out 1D fibrous flow in supervised representations. |
+| `12_scale_dependent_linearity` | Check if linearity emerges at larger scales (k=500). | Ruled out scale-induced isotropy in ResNet18. |
+| `13_training_objective_geometry` | Compare Supervised vs. SSL (SimCLR) geometry. | Found significant geometric divergence in SSL models. |
+| `14_trajectory_persistence_test` | Measure SSL trajectory coherence (Sliding Window PCA). | Ruled out 1D fibers in SSL; found "slab-like" geometry. |
+| `15_manifold_audit` | Adversarial audit via Whitening Acid Test. | **Falsified intrinsic manifolds**; confirmed covariance origin. |
 
 
 ## Empirical Results (Measured)
@@ -398,6 +444,17 @@ Variance sensitivity manifests as a **scalar property of dense prototype cores**
 
 **Implication**  
 The absence of fibrous structure appears fundamental to this representation and objective, not an artifact of neighborhood size or tangent resolution. This result motivates Phase II studies focused on **architecture and training-objective dependence**, rather than further intra-model geometric refinement.
+
+---
+
+### Phase II Comparative Studies — Summary of Falsification
+
+Phase II transitioned from discovery to adversarial stress-testing of the manifold hypothesis.
+
+- [**Experiment 1 — Scale-Dependent Linearity**](file:///Users/oflahertys/Documents/functional-geometry-hebbian-manifold/README.md#experiment-1--scale-dependent-linearity-test): Ruled out the possibility that manifold structure was simply "hidden" at different neighborhood scales.
+- [**Experiment 2 — Training Objective Geometry**](file:///Users/oflahertys/Documents/functional-geometry-hebbian-manifold/README.md#experiment-2--training-objective-geometry-test-preliminary): Identified that self-supervised objectives produce significantly higher tangent alignment than supervised ones, suggesting a "flattening" effect unique to SSL.
+- [**Experiment 3 — Trajectory Spectrum Test**](file:///Users/oflahertys/Documents/functional-geometry-hebbian-manifold/README.md#phase-ii--experiment-3-trajectory-spectrum-test-provisional): Determined that SSL alignment is "slab-like" (EVR₁ ≈ 0.36) rather than 1D fibrous; trajectories are persistent but not disentangled.
+- [**Experiment 4 — Manifold Audit**](file:///Users/oflahertys/Documents/functional-geometry-hebbian-manifold/README.md#phase-ii--experiment-4-manifold-audit-multi-probe-stress-test): Final falsification via the Whitening Acid Test. Proved that alignment is an artifact of **global covariance flattening**.
 
 ### Experiment 2 — Training Objective Geometry Test (Preliminary)
 

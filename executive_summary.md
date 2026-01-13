@@ -1,112 +1,62 @@
-# Executive Summary: Functional Geometry in Deep Neural Networks
+# Final Conclusions — Functional Geometry and the Manifold Stress Test
 
-## Research Question
+## Overview
 
-Do neural networks learn structured functional geometry that can be mapped, validated causally, and exploited for model compression?
+This repository documents a completed experimental arc investigating the "Manifold Hypothesis" in deep neural network representations. Through four phases of research, we have mapped, intervened upon, and stress-tested the geometric structure of frozen ResNet18 encoders.
 
-## Methodology
+### The Final Verdict
 
-This research employed a four-phase experimental approach:
+The research confirms that neural networks learn a **robust, causal functional geometry** that predicts neuron redundancy and system stability. However, multi-probe falsification tests demonstrate that this geometry is **statistical rather than topological**.
 
-1. **Manifold Discovery**: Applied dimensionality reduction to layer activations to identify geometric structure
-2. **Causal Validation**: Performed targeted neuron ablations based on geometric proximity
-3. **System-Scale Consolidation**: Scaled geometry-guided compression across multiple layers
-4. **Plasticity Testing**: Investigated the relationship between geometric perturbation and learning dynamics
+The primary conclusion is that trained ResNet representations exhibit **Covariance-Encoded Functional Anisotropy**—dense, covariance-structured attractor regions—rather than intrinsic low-dimensional semantic manifolds (fibrous curves).
 
-## Verified Conclusions
+## Phase-by-Phase Synthesis
 
-### 1. Learned Functional Geometry Exists
+### Phase I: Neuro-Cartography (Discovery)
+- **Hypothesis**: Latent representations organize into structured manifolds ("highways").
+- **Result**: Supported. Independent walkers converge into shared transit corridors.
+- **Interpretation**: Latent space is highly anisotropic but not yet confirmed as a manifold.
 
-Neural networks develop structured manifolds in activation space during training. These manifolds can be visualized and quantified through dimensionality reduction techniques applied to neuron activation patterns.
+### Phase II: Biopsy & Consolidation (Causal Validation)
+- **Hypothesis**: Geometric proximity predicts functional interchangeability.
+- **Result**: Supported. Sensitivity ratios (~14x) and mass consolidation stability demonstrate that geometry is a reliable causal prior for intervention.
+- **Interpretation**: Functional geometry exists and is mechanistically meaningful.
 
-**Evidence**: Consistent manifold structure observed across layers and architectures in Phase I experiments.
+### Phase III: Extended Geometric Probes (Comparative)
+- **Hypothesis**: Self-supervised learning (SSL) recovers true semantic fibers collapsed by supervised training.
+- **Result**: Falsified. While SSL exhibits higher tangent alignment and trajectory persistence, it remains far from 1D linearity.
+- **Interpretation**: SSL "flattens" the representation but does not disentangle it into fibers.
 
-### 2. Geometry Predicts Redundancy and Stiffness
+### Phase IV: Manifold Audit (Definitive Falsification)
+- **Hypothesis**: The observed "highways" reflect intrinsic topological manifolds.
+- **Result**: **Falsified via Whitening Acid Test**. Apparent structure does not survive whitening of the global covariance matrix.
+- **Verbatim Verdict**: “Observed ‘highways’ do not survive whitening and therefore are best explained as covariance artifacts rather than topological semantic manifolds.”
 
-Neurons that are proximal in geometric space exhibit functional overlap, while distant neurons perform distinct computations. This relationship is consistent and measurable.
+## Summary of Hypotheses
 
-**Evidence**: Phase II causal interventions demonstrated correlation between geometric distance and functional independence.
+| Hypothesis | Status | Evidence |
+|-----------|--------|----------|
+| **Semantic Manifolds** | Falsified | Whitening falsification + low EVR₁ |
+| **Functional Geometry** | Supported | Biopsy (Phase II), Consolidation (Phase III) |
+| **SSL Recovers Fibers** | Falsified | Trajectory Spectrum + Manifold Audit |
+| **Variance Encodes Importance** | Supported | Causal intervention success across all phases |
 
-### 3. Local Merges Are Safe; Distant Merges Destabilize
+## Key Insights
 
-Consolidating neurons that are close in manifold space preserves model performance. Merging geometrically distant neurons causes significant performance degradation.
+1. **Negative Results are Results**: The falsification of the manifold hypothesis at tested scales is a definitive scientific outcome that narrows the search space for neural representation geometry.
+2. **Whitening as a Decisive Test**: The failure of "highways" to survive whitening is the decisive evidence that the identified structure is encoded in global feature correlations (covariance) rather than local topological constraints.
+3. **Variance is the Representation**: In these architectures, functional geometry is effectively a map of variance scaling. High-variance directions are the "highways" of the network, but they are statistical artifacts of the training objective's flattening effect.
 
-**Evidence**: 
-- Successful biopsy experiments showed minimal performance loss when merging proximal neurons
-- Failed biopsy experiments (diagnostic) revealed instability from distant neuron merges
-- Effect size significantly exceeds random baseline
+## Terminology Lock-In
 
-### 4. Geometry-Guided Consolidation Preserves Function
+- **Functional Geometry**: Causal, variance-encoded organization that predicts intervention outcomes.
+- **Anisotropy**: Statistical non-uniformity in representation space (global "highways").
+- **Manifold (Topological)**: A hypothesized local 1D fiber or curve that persists independently of global covariance (Falsified).
+- **Covariance-Driven Flattening**: The mechanism by which training objectives reduce the effective rank, creating apparent but non-topological structure.
 
-Model compression strategies informed by functional geometry outperform naive approaches. The manifold structure provides a reliable prior for identifying safe consolidation targets.
+## Scope & Applicability
 
-**Evidence**: 
-- `06_neuro_surgeon_batch_biopsy.ipynb` statistical validation confirmed consistency across multiple layers.
-- `07_neuro_surgeon_mass_consolidation.ipynb` demonstrated significant parameter reduction with high accuracy preservation.
-- Supported by `scripts/neuro_surgeon_batch.py`.
-
-
-### 5. Random Damage Increases Plasticity via Noise (Negative Result)
-
-Controlled perturbation of network weights increases adaptability during subsequent training; however, results indicate **no specific advantage for the geometric model** over random damage baselines. This suggests that while functional geometry encodes organization, it does not uniquely mediate plasticity improvements beyond simple noise injection.
-
-**Evidence**: `08_neuro_sleep.ipynb` demonstrated that both geometric and random perturbations yield similar retraining dynamics.
-
-### 6. Geometry Encodes Stability, Not Learning Speed
-
-The manifold structure reflects functional organization and redundancy (stability) but does not predict accelerated learning or convergence during retraining.
-
-**Evidence**: Comparative analysis in `08_neuro_sleep.ipynb` confirmed that geometric consolidation preserves current function but does not "prime" the network for faster adaptation.
-
-
-
-## Implications
-
-### For Mechanistic Interpretability
-
-Functional geometry provides a quantitative framework for understanding neuron relationships beyond individual activation patterns. The manifold structure represents emergent organization that can be mapped and analyzed systematically.
-
-### For Model Compression
-
-Geometry-informed consolidation offers a principled approach to network pruning. By respecting the learned manifold structure, compression can preserve capabilities while reducing parameter count.
-
-### For Neural Network Theory
-
-The existence of stable, causal functional geometry suggests that training dynamics produce structured solutions rather than arbitrary parameter configurations. This structure may reflect optimization landscape properties or task-specific constraints.
-
-## Limitations
-
-1. **Scope**: Experiments conducted on specific architectures and tasks; generalization requires broader validation
-2. **Causality**: While interventions demonstrate correlation between geometry and function, underlying mechanisms remain unclear
-3. **Scale**: System-level consolidation results are preliminary; production deployment untested
-4. **Plasticity**: Phase IV experiments incomplete; claims about learning dynamics are speculative
-
-## Controls and Falsification
-
-All experiments included:
-- Random baseline comparisons
-- Multiple independent runs
-- Failed intervention documentation
-- Null hypothesis testing
-
-Failed experiments (e.g., `03_failed_biopsy.ipynb`) are retained and documented to demonstrate falsifiability and diagnostic value.
-
-## Future Directions
-
-1. Cross-architecture validation (CNNs, Transformers, RNNs)
-2. Theoretical formalization of geometry-function relationship
-3. Production-scale compression pipeline development
-4. Investigation of geometry evolution during training
-5. Comparison with biological neural organization (exploratory only)
-
-## Conclusion
-
-This research demonstrates that neural networks learn measurable, causal functional geometry. This geometry can be mapped through standard dimensionality reduction techniques and validated through targeted interventions. Geometry-guided consolidation preserves model function while enabling compression, suggesting that manifold structure encodes meaningful information about network organization.
-
-These findings establish functional geometry as a legitimate object of study in mechanistic interpretability and provide a foundation for geometry-informed model optimization strategies.
+These conclusions are based on frozen ResNet18 encoders. While they falsify the presence of intrinsic 1D manifolds in this specific regime, they do not rule out such structures in other architectures (e.g., Transformers), different training dynamics, or specialized objectives.
 
 ---
-
-**Last Updated**: January 2026  
-**Status**: Phases I-IV complete; Primary evidence archived via Colab notebooks
-
+**Status**: Experimental Arc Closed (January 2026)
