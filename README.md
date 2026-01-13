@@ -166,6 +166,16 @@ This study evaluates the upgraded probe on a frozen ResNet embedding space.
 
 - **Metric-Aware Walker Probe Study**: https://colab.research.google.com/drive/1zGZH1utq38y4G9RjYEchbuF2ObB_WDTX?usp=sharing
 
+### Probe Results — Visual Summary
+
+“These figures summarize the behavioral differences between the baseline random walker (Instrument I₀) and the upgraded metric-aware + short-memory walker (Instrument I₁) when probing a frozen ResNet embedding space. The results illustrate reduced probe-induced looping, increased trajectory diversity, and more coherent traversal under the upgraded instrument. No model parameters or representations are modified.”
+
+![Trajectory diversity and loop frequency comparison between baseline and upgraded walkers](artifacts/figures/walker_probe_diversity_and_loops.png)
+“Trajectory diversity (left) and loop frequency (right) across multiple runs, showing higher coverage and reduced revisitation under the upgraded probe.”
+
+![PCA projection of walker trajectories comparing baseline and upgraded probes](artifacts/figures/walker_probe_pca_trajectory_comparison.png)
+“Representative walker trajectories projected via PCA, illustrating reduced jitter and more directed traversal under the upgraded probe.”
+
 This study does not modify prior hypotheses, models, or training.
 
 ## Repository Structure
