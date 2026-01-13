@@ -278,7 +278,9 @@ Experiment 2 confirms that variance-driven traversal pathways correspond to dens
 │   ├── 05_neuro_surgeon_biopsy_v2.ipynb
 │   ├── 06_neuro_surgeon_batch_biopsy.ipynb
 │   ├── 07_neuro_surgeon_mass_consolidation.ipynb
-│   └── 08_neuro_sleep.ipynb
+│   ├── 08_neuro_sleep.ipynb
+│   ├── 09_metric_aware_walker_probe.ipynb
+│   └── 10_density_occupancy_correlation.ipynb
 ├── scripts/                           # Supporting Scripts
 │   ├── neuro_surgeon_batch.py
 │   └── neuro_sleep.py
