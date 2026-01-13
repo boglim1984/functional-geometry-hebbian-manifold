@@ -238,6 +238,32 @@ Although the walkers do not follow identical paths, they bend toward shared regi
 
 This experiment demonstrates that improved probe fidelity reveals global geometric constraints that are invisible under random diffusion.
 
+### Experiment 2 — Density–Occupancy Correlation (Topological Positioning)
+
+**Colab Notebook:**  
+https://colab.research.google.com/drive/15keQSvznJ6HUIk13WlWuGyxElHO1iiLA
+
+**Objective**  
+This experiment characterizes the topological location of the high-variance traversal pathways (“highways”) identified in Experiment 1. Specifically, it tests whether variance-biased probe dynamics preferentially occupy high-density regions (cluster cores / prototypes) or low-density regions (boundaries / transitions) of the latent space.
+
+**Method**  
+A static local density metric was computed for each node in the latent-space k-NN graph, defined as the inverse mean cosine distance to its nearest neighbors. Dynamic occupancy was measured by aggregating visit frequencies from long-run probe trajectories. Correlation between static density and dynamic occupancy was quantified using Spearman rank correlation. Instrument I₀ (baseline isotropic walker) served as a null control, while Instrument I₁ (variance-biased, short-memory walker) represented the upgraded probe.
+
+**Results**  
+Instrument I₀ exhibited a strong positive correlation between density and occupancy (Spearman r = 0.799), consistent with isotropic diffusion favoring dense hubs by chance. Instrument I₁ exhibited an even stronger positive correlation (Spearman r = 0.824), with a measurable increase relative to I₀ (Δr ≈ +0.025). This shift indicates that the variance-biased probe preferentially inhabits dense regions of the manifold beyond what is expected from isotropic traversal alone.
+
+**Interpretation**  
+The results indicate that the high-variance “highways” identified in Experiment 1 are embedded within dense regions of the latent space rather than along sparse boundaries. High feature variance in this representation corresponds to internal structure within cluster cores (“backbones”), rather than instability or class-transition zones (“fault lines”). This supports the interpretation that the representation concentrates its most sensitive and information-rich directions inside stable, highly populated regions of the manifold.
+
+**Figure**  
+*Density–Occupancy Relationship for Instrument I₀ and Instrument I₁.*  
+The hexbin plots visualize static node density versus dynamic occupancy probability. Instrument I₁ shows a strengthened positive coupling relative to I₀, indicating preferential traversal of dense regions.
+
+![Density–Occupancy Correlation](artifacts/figures/phase2_density_occupancy_correlation.png)
+
+**Status**  
+Experiment 2 confirms that variance-driven traversal pathways correspond to dense latent backbones rather than boundary regions. This result constrains the geometry of the representation and motivates subsequent experiments probing internal directional coherence within dense cores.
+
 ## Repository Structure
 
 ```
