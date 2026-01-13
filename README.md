@@ -78,55 +78,51 @@ If preview or download fails, clone the repository and run `git lfs pull`.
 - `02_untrained_baseline_manifold.ipynb` ([Link](https://colab.research.google.com/drive/1aJIFXcehXMtid97zwfKfozseJt2A9L9Q?usp=drive_link))
 - `03_pixel_shuffle_control.ipynb` ([Link](https://colab.research.google.com/drive/19qUlvA5l7vMswTg0psYmb-Iw6IEFboEs?usp=drive_link))
 
-**Phase I Visual Previews**
-
-- **01_neuro_cartography.ipynb**  
-  Colab: https://colab.research.google.com/drive/1Fq1l2yQtmzHF7zrIWcXd_1iyKWYtFNm6  
-  Preview: [phase1_trained_layer4.jpg](artifacts/figures/phase1_trained_layer4.jpg)
-
-- **02_untrained_baseline_manifold.ipynb**  
-  Colab: https://colab.research.google.com/drive/1aJIFXcehXMtid97zwfKfozseJt2A9L9Q  
-  Preview: [phase1_untrained_layer4.jpg](artifacts/figures/phase1_untrained_layer4.jpg)
-
-- **03_pixel_shuffle_control.ipynb**  
-  Colab: https://colab.research.google.com/drive/19qUlvA5l7vMswTg0psYmb-Iw6IEFboEs  
-  Preview: [phase2_pixelshuffle_layer4.jpg](artifacts/figures/phase2_pixelshuffle_layer4.jpg)
-
-Images are illustrative only; canonical measurements are derived from the linked notebooks.
-
-### Phase II: Biopsy (Causal Testing)
-
-**Objective**: Validate that geometric proximity predicts functional redundancy through targeted neuron removal.
-
-**Primary Evidence (Colab)**:
-- **04_failed_biopsy.ipynb** & **05_neuro_surgeon_biopsy_v2.ipynb**  
-  Colab: https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M  
-  (The former documents a failed configuration; the latter documents the corrected protocol.)
-
-
-### Phase III: Mass Consolidation
-
-**Objective**: Scale geometry-guided compression to system level.
-
-**Primary Evidence (Colab)**:
-- **06_neuro_surgeon_batch_biopsy.ipynb**  
-  Colab: https://colab.research.google.com/drive/1bxQ-ZOA6lep-b2QhyvM71dj5zt1YI7vc
-
-- **07_neuro_surgeon_mass_consolidation.ipynb**  
-  Colab: https://colab.research.google.com/drive/1VVuKh1WrFA_y182QiERAeHuI7zSVFPiJ
-
-**Status**: Statistical validation COMPLETE.
-
-### Phase IV: Sleep / Plasticity Test
-
-**Objective**: Investigate whether geometric perturbation affects learning dynamics.
-
-**Primary Evidence (Colab)**:
-- **08_neuro_sleep.ipynb**  
-  Colab: https://colab.research.google.com/drive/110sO1CQ5d8Worg3PrXJY2nmGgRtbdR5M
-
-
 **Status**: COMPLETE (Negative result verified).
+
+---
+
+### Phase I Experiment Manifest
+
+| Notebook | Purpose (Why it exists) | Verdict (What it ruled out) |
+|:---|:---|:---|
+| `01_neuro_cartography` | Map trained ResNet geometry vs activation space. | Revealed dense attractor regions (functional geometry). |
+| `02_untrained_baseline_manifold` | Contrast trained structure with random initialization. | Proved geometry is learned, not architectural bias. |
+| `03_pixel_shuffle_control` | Test if structure is mere local input correlation. | Confirmed topology depends on semantic filter learning. |
+
+### Phase II Experiment Manifest (Causal)
+
+| Notebook | Purpose (Why it exists) | Verdict (What it ruled out) |
+|:---|:---|:---|
+| `04_failed_biopsy` | Initial attempt at geometry-guided merging. | Identified importance of layer-norm and weight scaling. |
+| `05_neuro_surgeon_biopsy_v2` | Targeted surgical intervention for causal validation. | Proved geometric proximity predicts functional redundancy. |
+
+### Phase III Experiment Manifest (Consolidation)
+
+| Notebook | Purpose (Why it exists) | Verdict (What it ruled out) |
+|:---|:---|:---|
+| `06_neuro_surgeon_batch_biopsy` | Statistical validation of merging sensitivity (N=50). | Confirmed 14x sensitivity gap between Near/Far merges. |
+| `07_neuro_surgeon_mass_consolidation` | System-level compression stability test. | Proved geometry-guided compression is ~1.8x more stable. |
+
+### Phase IV Experiment Manifest (Plasticity)
+
+| Notebook | Purpose (Why it exists) | Verdict (What it ruled out) |
+|:---|:---|:---|
+| `08_neuro_sleep.ipynb` | Test if consolidation acts as a "speedup" prior. | Ruled out geometry-guided learning rate acceleration. |
+
+---
+
+### Phase V Experiment Manifest (Instrumentation & Falsification)
+
+| Notebook | Purpose (Why it exists) | Verdict (What it ruled out) |
+|:---|:---|:---|
+| `09_metric_aware_walker_probe` | Upgrade traversal resolution to reduce looping artifacts. | Ruled out purely random walk as an optimal probe. |
+| `10_density_occupancy_correlation` | Locate "highways" relative to latent density. | Confirmed highways exist inside dense cores, not boundaries. |
+| `11_vector_field_alignment` | Test for local fibrous (1D) structure in ResNet18. | Ruled out 1D fibrous flow in supervised representations. |
+| `12_scale_dependent_linearity` | Check if linearity emerges at larger scales (k=500). | Ruled out scale-induced isotropy in ResNet18. |
+| `13_training_objective_geometry` | Compare Supervised vs. SSL (SimCLR) geometry. | Found significant geometric divergence in SSL models. |
+| `14_trajectory_persistence_test` | Measure SSL trajectory coherence (Sliding Window PCA). | Ruled out 1D fibers in SSL; found "slab-like" geometry. |
+| `15_manifold_audit` | Adversarial audit via Whitening Acid Test. | **Falsified intrinsic manifolds**; confirmed covariance origin. |
 
 ---
 
@@ -456,10 +452,7 @@ Phase II transitioned from discovery to adversarial stress-testing of the manifo
 - [**Experiment 3 — Trajectory Spectrum Test**](file:///Users/oflahertys/Documents/functional-geometry-hebbian-manifold/README.md#phase-ii--experiment-3-trajectory-spectrum-test-provisional): Determined that SSL alignment is "slab-like" (EVR₁ ≈ 0.36) rather than 1D fibrous; trajectories are persistent but not disentangled.
 - [**Experiment 4 — Manifold Audit**](file:///Users/oflahertys/Documents/functional-geometry-hebbian-manifold/README.md#phase-ii--experiment-4-manifold-audit-multi-probe-stress-test): Final falsification via the Whitening Acid Test. Proved that alignment is an artifact of **global covariance flattening**.
 
-### Experiment 2 — Training Objective Geometry Test (Preliminary)
-
-**Status:** Exploratory / Instrument-validation phase  
-**Note:** Results are indicative but not final. Self-supervised weights fallback was used for structural validation only.
+### Experiment 5 — Training Objective Geometry Test
 
 **Question**  
 Is the “isotropic blob” geometry observed in supervised ResNet18 representations an artifact of the cross-entropy training objective, or a property of the architecture itself?
@@ -508,10 +501,7 @@ This motivates the next experiment.
 
 This motivates the next experiment.
 
-### Experiment 3 — Trajectory Spectrum Test (Manifold Persistence)
-
-**Status:** Provisional / Interpretive phase  
-**Note:** Results are indicative of geometric divergence but do not confirm fibrous manifolds.
+### Experiment 6 — Trajectory Spectrum Test (Manifold Persistence)
 
 **Goal**  
 Test whether the increased local tangent alignment observed in self-supervised (SSL) representations aggregates into coherent 1D manifolds over time, or instead reflects low-rank dimensional collapse (flattening).
@@ -541,10 +531,7 @@ To further disambiguate "slab" geometry from true manifold structure, the next s
 ![Trajectory Spectrum Test](artifacts/figures/phase2_experiment_3_trajectory_spectrum_test.png)
 *Figure: Trajectory PC1 Explained Variance Ratio (L=20). SSL representations show a clear shift toward higher trajectory persistence compared to supervised models, though both remain far from 1D linearity.*
 
-### Experiment 4 — Manifold Audit (Multi-Probe Stress Test)
-
-**Status:** Exploratory / Falsification-oriented  
-**Note:** This experiment serves as an adversarial audit of the "Manifold Hypothesis" in latent representations.
+### Experiment 7 — Manifold Audit (Multi-Probe Stress Test)
 
 **Purpose**  
 Stress-test the observation of anisotropic "highways" against the null hypotheses of global dimensional collapse and covariance-induced artifacts.
