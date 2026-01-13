@@ -1,5 +1,8 @@
 # Functional Geometry in Deep Neural Networks
 
+> [!IMPORTANT]
+> **For the authoritative, falsification-oriented conclusions of this study, see [executive_summary.md](executive_summary.md) and [FINAL_CONCLUSIONS.md](FINAL_CONCLUSIONS.md).**
+
 ## Overview
 
 This repository documents an experimental research arc investigating learned functional geometry in deep neural networks. The project demonstrates the existence, causality, and system-level effects of geometric structure that emerges during training, explores its implications for model compression, interpretability, and plasticity, and defines functional geometry as structure induced by cosine similarity between neuron activation vectors.
@@ -19,26 +22,34 @@ New readers should start with [docs/how_to_read.md](docs/how_to_read.md) for a c
 
 ## Core Hypothesis
 
-Neural networks learn functional geometry—structured, dense regions in activation space that encode redundancy, stiffness, and causal relationships between neurons. This geometry can be:
+Neural networks learn functional geometry characterized by **anisotropic variance scaling** in activation space, rather than intrinsic low-dimensional topological manifolds. This functional geometry can be:
 - **Mapped** through dimensionality reduction and clustering
 - **Validated** through targeted surgical interventions
 - **Exploited** for safe model consolidation
 - **Perturbed** to study plasticity dynamics
 
-**Primary conclusion:** Trained ResNet representations exhibit robust functional geometry that predicts redundancy and stability under intervention. However, this geometry consists of dense, covariance-structured attractor regions rather than intrinsic low-dimensional semantic manifolds.
+**Primary conclusion:** Trained ResNet representations exhibit robust functional geometry (statistical anisotropy) that predicts redundancy and stability under intervention. However, this structure is a byproduct of **covariance-driven dimensional flattening**; the hypothesis that activations reside on intrinsic, whitening-invariant topological manifolds is **falsified**.
 
 [![Layer 4 trained manifold (ResNet18)](artifacts/figures/phase1_trained_layer4.jpg)](artifacts/figures/phase1_trained_layer4.jpg)
 
-*Figure: 3D projection of the Layer 4 activation correlation manifold for a trained ResNet18.  
+*Figure: 3D projection of the Layer 4 activation correlation geometry for a trained ResNet18.  
 This image is a visualization aid only; canonical data is provided via the PLY artifacts in `artifacts/ply/`.*
 
-## 🏁 Final Conclusions (Read This First)
+## Final Conclusions (Falsification Summary)
 
-The experimental arc concludes that while deep neural networks develop robust **functional geometry**, they do not exhibit true **topological manifolds** at the scales tested.
+The following points summarize the authoritative results of the Manifold Stress Test:
 
-- **Final Verdict**: The observed geometric structures are instances of **Covariance-Encoded Functional Anisotropy**.
-- **Falsification**: The "highways" seen in SSL representations are artifacts of global covariance-driven flattening and do not survive whitening.
-- **Causality**: Geometric proximity remains a valid and powerful predictor of functional redundancy (verified via biopsy).
+- **Intrinsic topological manifolds (fibers, sheets, curves) were NOT found** in ResNet18 latent space at tested scales.
+- **Apparent "highways"** and local linearity effects observed in dimensionality reduction are explained by **global covariance anisotropy**, not topological connectivity.
+- **Self-supervised learning (SSL)** increases apparent alignment via **dimensional flattening (low-rank collapse)**, producing flattened "slabs" rather than semantic fibers.
+- **Whitening effectively destroys observed traversal structure**, confirming the geometry is **variance-encoded** (statistical) rather than topological.
+- The Manifold Hypothesis (as commonly stated) is **falsified** for this architecture and setting.
+
+- **Final Geometric Verdict**: Observed structures are instances of **Covariance-Encoded Functional Anisotropy**.
+
+### Methodological Contribution
+This study introduces the **Manifold Stress Test**, a four-probe adversarial framework for auditing latent geometry. By combining spectral analysis, trajectory persistence tests, and the **Whitening Acid Test**, it provides a rigorous path for disambiguating between semantic disentanglement and statistical flattening (rank reduction) in modern deep representations.
+
 - **See Full Report**: [executive_summary.md](executive_summary.md)
 
 ### Canonical Summary Figures
@@ -126,22 +137,6 @@ If preview or download fails, clone the repository and run `git lfs pull`.
 
 ---
 
-### Phase V Experiment Manifest (Instrumentation & Falsification)
-
-| Notebook | Purpose (Why it exists) | Verdict (What it ruled out) |
-|:---|:---|:---|
-| `09_metric_aware_walker_probe` | Upgrade traversal resolution to reduce looping artifacts. | Ruled out purely random walk as an optimal probe. |
-| `10_density_occupancy_correlation` | Locate "highways" relative to latent density. | Confirmed highways exist inside dense cores, not boundaries. |
-| `11_vector_field_alignment` | Test for local fibrous (1D) structure in ResNet18. | Ruled out 1D fibrous flow in supervised representations. |
-| `12_scale_dependent_linearity` | Check if linearity emerges at larger scales (k=500). | Ruled out scale-induced isotropy in ResNet18. |
-| `13_training_objective_geometry` | Compare Supervised vs. SSL (SimCLR) geometry. | Found significant geometric divergence in SSL models. |
-| `14_trajectory_persistence_test` | Measure SSL trajectory coherence (Sliding Window PCA). | Ruled out 1D fibers in SSL; found "slab-like" geometry. |
-| `15_manifold_audit` | Adversarial audit via Whitening Acid Test. | **Falsified intrinsic manifolds**; confirmed covariance origin. |
-
----
-
-### Phase II Experiment Manifest (Detailed)
-
 
 ## Empirical Results (Measured)
 
@@ -157,35 +152,6 @@ If preview or download fails, clone the repository and run `git lfs pull`.
 
 "All results are measured directly from intervention experiments and reported as loss or accuracy deltas relative to identical baselines. Negative ΔLoss values indicate improved alignment due to head mismatch and should be interpreted by magnitude, not sign."
 
-## Key Results (Verified)
-
-- Geometry predicts redundancy: neuron-pair proximity in activation space predicts functional interchangeability under intervention.
-- Geometry-guided consolidation is more stable than random merging at scale.
-
-## Key Findings
-
-1. **Functional geometry exists**: Neurons organize into structured, dense attractor regions in activation space
-2. **Geometry predicts redundancy**: Proximal neurons in geometric space exhibit functional interchangeability
-3. **Local merges are safe**: Consolidating nearby neurons preserves performance
-4. **Distant merges destabilize**: Merging geometrically distant neurons degrades function
-5. **Geometry-guided consolidation works**: Compression informed by geometric structure outperforms naive approaches
-6. **Geometry encodes stability, not learning speed**: Geometric consolidation does not significantly improve learning speed under transfer learning; benefits appear primarily in stability, not plasticity.
-
-These findings have been re-evaluated under an upgraded traversal probe that reduces probe-induced artifacts (see Instrument Transition below).
-
-## What This Is / Is Not
-
-**This is**:
-- A mechanistic interpretability study
-- An exploration of compression priors
-- A demonstration of causal validation methods
-- An archive of experimental results with controls
-
-**This is not**:
-- A claim about biological neural networks
-- A general theory of deep learning
-- A production-ready compression method
-- A complete explanation of network function
 
 ## Instrument Transition — Walker Probe Upgrade
 
@@ -224,7 +190,7 @@ This study evaluates the upgraded probe on a frozen ResNet embedding space.
 “Trajectory diversity (left) and loop frequency (right) across multiple runs, showing higher coverage and reduced revisitation under the upgraded probe.”
 
 ![PCA projection of walker trajectories comparing baseline and upgraded probes](artifacts/figures/walker_probe_pca_trajectory_comparison.png)
-“Representative walker trajectories projected via PCA, illustrating reduced jitter and more directed traversal under the upgraded probe.”
+“Representative walker trajectories projected via PCA, illustrating reduced jitter and more directed traversal under the upgraded probe. These effects do not survive whitening and are interpreted as covariance artifacts.”
 
 This study does not modify prior hypotheses, models, or training.
 
@@ -275,24 +241,24 @@ To contextualize the quantitative results, a representative pair of I₁ traject
 
 ![PCA visualization of independent I₁ walker convergence](artifacts/figures/experiment1_pca_highway_convergence.png)
 
-Although the walkers do not follow identical paths, they bend toward shared regions of the latent space, consistent with the presence of sparse, anisotropic transit corridors rather than a single global attractor.
+Although the walkers do not follow identical paths, they bend toward shared regions of high global variance (anisotropy). These apparent transit corridors do not survive whitening and are interpreted as covariance artifacts.
 
 **Interpretation**
 
-- The latent space is not isotropic: flow is constrained along preferred directions.
-- High-variance regions form a weak but real connective skeleton (“highways”).
+- The latent space is not isotropic: flow is constrained along preferred directions of variance.
+- High-variance regions form a weak but real connective skeleton.
 - The effect is reproducible across random seeds and absent under the baseline probe.
 - No semantic interpretation or class structure is assumed or inferred.
 
 This experiment demonstrates that improved probe fidelity reveals global geometric constraints that are invisible under random diffusion.
 
-### Experiment 2 — Density–Occupancy Correlation (Topological Positioning)
+### Experiment 2 — Density–Occupancy Correlation (Geometric Positioning)
 
 **Colab Notebook:**  
 https://colab.research.google.com/drive/15keQSvznJ6HUIk13WlWuGyxElHO1iiLA
 
 **Objective**  
-This experiment characterizes the topological location of the high-variance traversal pathways (“highways”) identified in Experiment 1. Specifically, it tests whether variance-biased probe dynamics preferentially occupy high-density regions (cluster cores / prototypes) or low-density regions (boundaries / transitions) of the latent space.
+This experiment characterizes the geometric location of the high-variance traversal pathways identified in Experiment 1. Specifically, it tests whether variance-biased probe dynamics preferentially occupy high-density regions (cluster cores / prototypes) or low-density regions (boundaries / transitions) of the latent space.
 
 **Method**  
 A static local density metric was computed for each node in the latent-space k-NN graph, defined as the inverse mean cosine distance to its nearest neighbors. Dynamic occupancy was measured by aggregating visit frequencies from long-run probe trajectories. Correlation between static density and dynamic occupancy was quantified using Spearman rank correlation. Instrument I₀ (baseline isotropic walker) served as a null control, while Instrument I₁ (variance-biased, short-memory walker) represented the upgraded probe.
@@ -371,8 +337,8 @@ Across three experiments, the following conclusions were established:
 1. **Structural Anisotropy (Experiment 1):**  
    Independent I₁ walkers converge into shared transit corridors, demonstrating non-random, anisotropic structure in the latent space.
 
-2. **Topological Positioning (Experiment 2):**  
-   Variance-biased traversal preferentially inhabits high-density regions. The identified “highways” lie within dense cluster cores (“backbones”), not sparse boundaries or transition zones.
+2. **Geometric Positioning (Experiment 2):**  
+   Variance-biased traversal preferentially inhabits high-density regions. The identified transit corridors lie within dense cluster cores (“backbones”), not sparse boundaries or transition zones.
 
 3. **Local Geometry (Experiment 3):**  
    Despite global anisotropy and dense attractors, traversal within these backbones is locally isotropic. No significant alignment with local tangent directions was observed.
@@ -462,7 +428,7 @@ Phase II transitioned from discovery to adversarial stress-testing of the manifo
 Is the “isotropic blob” geometry observed in supervised ResNet18 representations an artifact of the cross-entropy training objective, or a property of the architecture itself?
 
 **Motivation**  
-Supervised classification objectives explicitly compress intra-class variation toward centroids, potentially collapsing local geometric structure. In contrast, self-supervised contrastive objectives (e.g., SimCLR) are designed to preserve invariances and may retain continuous transformation fibers. This experiment probes whether training objective alone alters local geometric structure.
+Supervised classification objectives explicitly compress intra-class variation toward centroids, potentially collapsing local geometric structure. In contrast, self-supervised contrastive objectives (e.g., SimCLR) are designed to preserve invariances and may exhibit higher directional coherence (anisotropy). This experiment probes whether training objective alone alters local geometric structure.
 
 **Method Summary**
 - Architecture fixed: ResNet-18
@@ -478,7 +444,7 @@ The self-supervised representation exhibits substantially higher tangent alignme
 The current run used a fallback self-supervised model due to missing SimCLR weights at runtime. As such, the numerical values are not treated as conclusive evidence. However, the experiment validates the *discriminative power and sensitivity* of the probe and supports the plausibility of the “Collapse Hypothesis.”
 
 **Interpretation**
-These preliminary results suggest that label-driven supervision may actively suppress local manifold structure, while self-supervised objectives preserve or recover linear fibers of variation. Final confirmation requires rerunning this experiment with verified SimCLR (or equivalent) pretrained weights.
+These preliminary results suggest that label-driven supervision may actively suppress local structural alignment, while self-supervised objectives produce lower-rank representations with enhanced directional persistence. Final confirmation requires rerunning this experiment with verified SimCLR (or equivalent) pretrained weights.
 
 ### Interpretation Update — Dimensional Collapse Caveat (Important)
 
